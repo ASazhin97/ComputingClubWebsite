@@ -1,0 +1,39 @@
+.brand-img{
+    width: 20%;
+}
+
+.navbar{
+    background-color: midnightblue;
+
+}
+
+.nav-item{
+    font-size: 20px;
+    color: white;
+}
+
+.active{
+    background-color: gold;
+}
+
+.bottom-align{
+    position: absolute;
+    bottom: 0;
+    margin-left: 30%;
+    margin-right: 70%;
+    
+}
+
+.action-buttons{
+    position: absolute;
+    right:0;
+    margin-right: 1%;
+    float:right;
+    align-self: flex-start;
+}
+
+.btn{
+    width: 100%;
+    margin: 5%;
+    
+}
