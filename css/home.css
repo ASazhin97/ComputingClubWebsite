@@ -15,6 +15,9 @@ body{
 }
 .nav-item{
     font-size: 20px;
+    background-color: midnightblue;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .active{
@@ -35,6 +38,11 @@ body{
     margin-right: 1%;
     float:right;
     align-self: flex-start;
+}
+
+.btn{
+    color: white;
+    background-color: midnightblue;
 }
 
 .carousel-inner img {
