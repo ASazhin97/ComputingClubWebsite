@@ -7,9 +7,10 @@ body{
 }
 
 .navbar{
-    background-image: url("/images/Q_Plaid.jpg");
-    height:12%;
+    height: 12%;
+    background-image: url("../images/Q_Plaid.jpg");
 }
+
 
 .nav-link{
     color: white;
