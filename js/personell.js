@@ -6,13 +6,29 @@ personellApp.controller('officerController', ['$scope', function($scope){
             "Name":"David Lepore",
             "Class":"Junior",
             "Position":"President",
-            "Image":"images/david_lepore.jpg"
+            "Image":"images/david_lepore.jpg",
+            "Type":"Student"
         },
         {
-            "Name":"David Lepore",
+            "Name":"Joseph White",
             "Class":"Junior",
-            "Position":"President",
-            "Image":"images/david_lepore.jpg"
+            "Position":"Vice President",
+            "Image":"#",
+            "Type":"Student"
+        },
+        {
+            "Name":"Megan Forester",
+            "Class":"Junior",
+            "Position":"Tresurer",
+            "Image":"images/MeganForster.jpg",
+            "Type":"Student"
+        },
+        {
+            "Name":"Stefan Christov",
+            "Class":"PhD",
+            "Position":"Supervisor",
+            "Image":"images/StefanChristov.jpg",
+            "Type":"Professor"
         }
     ];
     
