@@ -69,6 +69,13 @@ body{
  .carousel{
      width: 100%;
  }
+.btn-action{
+    color: white;
+    background-color: midnightblue;
+    width: 100%;
+    margin: 5%;
+    
+}
 
  .panel {
    margin: 2%;
