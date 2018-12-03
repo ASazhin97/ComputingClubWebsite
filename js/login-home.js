@@ -7,6 +7,15 @@ var getNewPointInput = function(){
 var checklistApp = angular.module('ChecklistApp', []);
 
 checklistApp.controller('checklistController', ['$scope', function($scope){
+    $scope.new_event = {};
+    
+    $scope.addEvent = function(event){
+        $scope.new_event.Points = [];
+        $scope.new_event.Num = $scope.events.length;
+        $scope.events.push(event);
+        
+        $scope.new_event = {};
+    }
     
     $scope.events = [
         {

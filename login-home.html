@@ -15,7 +15,7 @@
 <body ng-controller = "checklistController">
 <!-- nav bar -->
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="home.html"><img class = "brand-img rounded-circle" src = "images/imageQ.jpg"></a>
+  <a class="navbar-brand" href="login-home.html"><img class = "brand-img rounded-circle" src = "images/imageQ.jpg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,19 +23,19 @@
   <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
     <ul class="top-list navbar-nav mr-auto">
       <li class="nav-item active rounded">
-        <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="login-home.html">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="personell.html">Personell<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-personell.html">Personell<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="resources.html">Resources<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="experience.html">Experiances<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-experience.html">Experiances<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="events.html">Events<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-events.html">Events<span class="sr-only"></span></a>
       </li>
 
     </ul>
@@ -55,6 +55,29 @@
     <div ng-repeat = "event in events">
         <button class = "btn btn-primary" ng-click = "setSection(event.Num)">{{event.Name}}</button>
     </div>
+    <hr>
+        
+
+    
+    <form class = "form-vertical" name = "EventForm" ng-submit = "addEvent(new_event)">
+        <div class = "form-group">
+            <label class = "new-event-label">Event Name:</label>
+            <input type="text" class = "form-control" placeholder="Enter Name of Event" ng-model = "new_event.Name" required>
+        </div>
+        
+        <div class = "form-group">
+            <label class = "new-event-label">Description:</label>
+            <textarea class = "form-control" placeholder="Description" ng-model = "new_event.Description"></textarea>
+        </div>
+        
+        <div class = "form-group">
+            <label class = "new-event-label">Date:</label>
+            <input type="text" class = "form-control" placeholder="mm/dd/yyyy" ng-model = "new_event.Date" required>
+        </div>
+        
+        
+        <button type = "submit" class = "btn btn-secondary btn-add-event">ADD EVENT</button>
+    </form> 
     
 </div>
     
