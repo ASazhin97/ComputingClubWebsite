@@ -86,7 +86,10 @@
     <h3 class = "title">{{current_event.Description}}</h3>
     
     <ul class = "list">
-        <li class = "list-item" ng-repeat = "point in current_points">{{point}}</li>
+        <li class = "list-item" ng-repeat = "point in current_points"><div style = "display:inline-block; width:98%;">{{point}}</div>
+        
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" style = "float: right;" >
+        </li>
         <li class = "list-item"><input type = "text" class = "form-control new-point-input" name = "newPoint" style = "display: inline-block;">
         <button class = "add-btn" ng-click = "addPoint()">ADD</button></li>
     </ul>
