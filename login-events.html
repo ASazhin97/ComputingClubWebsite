@@ -8,6 +8,7 @@
 <script src="http://code.angularjs.org/1.2.6/angular.js"></script>
 <script type="text/javascript" src = "js/events.js"></script>
   <link rel = "stylesheet" href = "css/home.css">
+<link rel="stylesheet" href="css/login-events.css">
 
 </head>
 <body>
@@ -21,27 +22,27 @@
   <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
     <ul class="top-list navbar-nav mr-auto">
       <li class="nav-item rounded">
-        <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="login-home.html">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="personell.html">Personell<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-personell.html">Personell<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="resources.html">Resources<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="experience.html">Experiances<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-experience.html">Experiances<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active rounded">
-        <a class="nav-link" href="events.html">Events<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-events.html">Events<span class="sr-only"></span></a>
       </li>
 
     </ul>
        
   </div>
     <div class = "action-buttons">
-        <a href = "apply.html"><div><button class = "btn btn-secondary">Apply Now</button></div></a>
-        <a href = "login.html"><div><button class = "btn btn-secondary">Admin Login</button></div></a>
+        <a href = "#"><div><button class = "btn btn-secondary">Application Review</button></div></a>
+        <a href = "home.html"><div><button class = "btn btn-secondary">Log Out</button></div></a>
     </div>
 </nav>
 <!-- nav bar end -->
@@ -59,10 +60,33 @@
             </div>
         
         </div>
+        
+        <form class = "form-vertical" name = "EventForm" ng-submit = "addEvent(new_event)">
+        <div class = "form-group">
+            <label class = "new-event-label">Event Name:</label>
+            <input type="text" class = "form-control" placeholder="Enter Name of Event" ng-model = "new_event.Title" required>
+        </div>
+        
+        <div class = "form-group">
+            <label class = "new-event-label">Description:</label>
+            <textarea class = "form-control" placeholder="Description" ng-model = "new_event.Description"></textarea>
+        </div>
+        
+        <div class = "form-group">
+            <label class = "new-event-label">Date:</label>
+            <input type="text" class = "form-control" placeholder="mm/dd/yyyy" ng-model = "new_event.Date" required>
+        </div>
+        
+        
+        <button type = "submit" class = "btn btn-secondary btn-add-event">ADD EVENT</button>
+    </form> 
     </div>
     
     <!-- calendar coloumn-->
     <div class = " col-sm- 12 col-lg-7">
+        <a href="https://calendar.google.com/calendar/b/2?cid=NXBldGRyNXM4ZTZxdnI5bmFtMzdlMmJucXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"><button class = "btn btn-add-event btn-secondary">Edit Calendar</button></a>
+        
+        
         <iframe src="https://calendar.google.com/calendar/b/2/embed?height=800&amp;wkst=1&amp;bgcolor=%23000099&amp;src=5petdr5s8e6qvr9nam37e2bnqs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="80%" height="700" frameborder="0" scrolling="no"></iframe>
     </div>
     
