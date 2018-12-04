@@ -1,6 +1,8 @@
 var eventsApp = angular.module("EventsApp", []);
 
 eventsApp.controller('eventController', ['$scope', function($scope){
+    $scope.new_event = {}
+    
     $scope.events = [
         {
             "Title":"Hackathon",
@@ -13,4 +15,10 @@ eventsApp.controller('eventController', ['$scope', function($scope){
             "Date":"12/1/2018"
         }
     ];
+    
+    $scope.addEvent = function(event){
+        $scope.events.push(event);
+        
+        $scope.new_event = {};
+    }
 }])
