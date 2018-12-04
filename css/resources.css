@@ -49,7 +49,8 @@ body{
  }
 
  .btn-down {
-     background-color: gold;
+   color: white;
+   background-color: midnightblue;
  }
 
  .row-one{
@@ -68,6 +69,7 @@ body{
  .carousel{
      width: 100%;
  }
+
 .btn-action{
     color: white;
     background-color: midnightblue;

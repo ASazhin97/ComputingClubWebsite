@@ -44,3 +44,9 @@
     color:white;
     font-size: 120%;
 }
+
+.btn-down {
+  color: black;
+    background-color: gold;
+    margin:0%;
+}
