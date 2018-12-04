@@ -45,4 +45,9 @@ newsApp.controller("newsController", ['$scope', function($scope) {
     return false;
   }
 
+  $scope.removeArticle = function(article) {
+  var index = $scope.articles.indexOf(article);
+  $scope.articles.splice(index, 1);
+}
+
 }]);
