@@ -17,9 +17,9 @@ personellApp.controller('officerController', ['$scope', function($scope){
             "Type":"Student"
         },
         {
-            "Name":"Megan Forester",
+            "Name":"Megan Forster",
             "Class":"Junior",
-            "Position":"Tresurer",
+            "Position":"Treasurer",
             "Image":"images/MeganForster.jpg",
             "Type":"Student"
         },
