@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="newsApp">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/login-applications.css">
+  <script type='text/javascript' src="angular.min.js"></script>
+
+</head>
+
+<body ng-controller="newsController">
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="home.html"><img class="brand-img rounded-circle" src="images/imageQ.jpg"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
+      <ul class="top-list navbar-nav mr-auto">
+        <li class="nav-item rounded">
+          <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="personell.html">Personell<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="resources.html">Resources<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="experience.html">Experiances<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="events.html">Events<span class="sr-only"></span></a>
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="action-buttons">
+      <div><button class="btn btn-up">Apply Now</button></div>
+      <a href="login.html">
+        <div><button class="btn btn-up">Admin Login</button></div>
+      </a>
+    </div>
+  </nav>
+  <!-- nav bar end -->
+
+<div class="container-fluid text-center">
+  <h2 style="color:white; margin-top:2%;">Submitted Membership Applications</h2>
+</div>
+
+  <!-- Display Article -->
+  <!-- filter:consoleFilter | this should be used to filter through articles using consoleFilter function -->
+  <div ng-repeat="article in articles | filter:searchFor |  orderBy: '-date'" class="panel panel-default">
+    <div class="panel-heading" >
+      <p> <b>{{ article.name }}</b> </p>
+    </div>
+    <div class="panel-body">
+        <p> <b>Major:</b> {{ article.major }} </p>
+        <p> <b>Expected Year of Graduation:</b> {{ article.grad }} </p>
+        <p> <b>Reason For Wanting to Join:</b> {{ article.why }} </p>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-success" ng-click="removeArticle(article)"  data-toggle="modal" data-target="#myModal">Accept</button>
+      <button class="btn btn-danger" ng-click="removeArticle(article)" data-toggle="modal" data-target="#myOtherModal">Decline</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-body" style="margin: 15px;">
+          <div class="container-fluid text-center">
+            <p>Applicant will be sent an email notifying them of their acceptance!</p>
+            <label for="messageInput">Want to send them a personalized message?</label>
+            <textarea class="form-control" rows="3" id="messageInput" placeholder="Can't wait to see you at the next club meeting!"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-down" data-dismiss="modal">Send</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myOtherModal" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-body" style="margin: 15px;">
+          <div class="container-fluid text-center">
+            <p>Applicant will be sent an email notifying them of their rejection...</p>
+            <label for="messageInput">Why did you reject their application?</label>
+            <textarea class="form-control" rows="3" id="messageInput" placeholder=". . ."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-down" data-dismiss="modal">Send</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End Modal -->
+
+  <div style="clear: left"></div>
+
+  <script src="js/login-applications.js"></script>
+
+
+
+</body>
+
+</html>
