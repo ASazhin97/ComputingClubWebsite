@@ -82,3 +82,15 @@ body{
 }
 
 .myContainer {}
+  
+   .form-row {
+     margin: 10px;
+   }
+
+   #addition {
+     border: white;
+     background-color: gold;
+     padding: 10px;
+     margin-left: 120px;
+     margin-right: 10px;
+   }
