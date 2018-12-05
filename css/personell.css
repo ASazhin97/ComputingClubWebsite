@@ -11,6 +11,11 @@ body{
     background-image: url("../images/Q_Plaid.jpg");
 }
 
+.add-btn{
+    background-color: gold;
+    width:10%;
+    margin: 1%;
+}
 
 .nav-link{
     color: white;
