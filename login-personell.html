@@ -27,7 +27,7 @@
       </li>
       <li class="nav-item active rounded">
 
-        <a class="nav-link" href="login-personell.html">Personell<span class="sr-only"></span></a>
+        <a class="nav-link" href="login-personell.html">Personnel<span class="sr-only"></span></a>
 
       </li>
       <li class="nav-item rounded">
@@ -55,11 +55,10 @@
 <!-- nav bar end -->
 
 
-<button class = "btn btn-primary" style = "margin: 0%; margin-left: 20%; margin-top: 2%; width: 10%; " ng-click = "Save()">Save</button>
-    
+<button class = "btn btn-primary" style = "margin: 0%; margin-left: 20%; margin-top: 2%; width: 10%;" ng-click = "Save()">Save</button>
+
 <div class = "row row-one" >
-    
-    
+
     <div class = "col-lg-7" style="margin:1%">
     <h2 class = "title-one">Computing Club Officers</h2>
         <div class = "card" ng-repeat ="officer in officers | filter:{Type:'Student'}" >
@@ -72,7 +71,7 @@
         </div>
     </div>
 
-    
+
     <div class = "col-lg-4">
         <h2 class = "title-one">Professors</h2>
         <div class = "card" ng-repeat ="officer in officers | filter:{Type:'Professor'}" >
@@ -85,15 +84,15 @@
         </div>
     </div>
 
-    
+
 </div>
-    
+
 <div class = "row">
     <div class = "col-sm-12 col-lg-6">
-    
+
     <div class="myContainer" style="margin-top: 2%; margin-left: 70px; background-color: gold;">
     <form class="col-md-8" id="addition" ng-submit="addPersonell(new_personell)">
-      <h3 style="text-align: center; color: white;">Add New Personell</h3>
+      <h3 style="text-align: center; color: white;">Add New Personnel</h3>
       <div class="form-row">
         <input type="text" placeholder="Name" ng-model="new_personell.Name" style="width:50%" required />
       </div>
@@ -119,12 +118,11 @@
       </div>
     </form>
   </div>
-        
+
     </div>
-</div>    
-    
+</div>
+
 </body>
 
 
 </html>
-
