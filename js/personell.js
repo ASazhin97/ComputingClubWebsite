@@ -25,13 +25,13 @@ personellApp.controller('officerController', ['$scope', function($scope){
             "Name":"Joseph White",
             "Class":"Junior",
             "Position":"Vice President",
-            "Image":"#",
+            "Image":"images/joe.png",
             "Type":"Student"
         },
         {
-            "Name":"Megan Forester",
+            "Name":"Megan Forster",
             "Class":"Junior",
-            "Position":"Tresurer",
+            "Position":"Treasurer",
             "Image":"images/MeganForster.jpg",
             "Type":"Student"
         },
@@ -43,7 +43,7 @@ personellApp.controller('officerController', ['$scope', function($scope){
             "Type":"Professor"
         }
     ];
-    
-    
-    
+
+
+
 }]);

@@ -10,10 +10,17 @@
 
 .form-vertical{
     text-align: left;
-    margin-left:5%;
+    margin:5%;
+    border: white;
 }
 
 .new-event-label{
     color:white;
     font-size: 120%;
+}
+
+.btn-down {
+  color: black;
+    background-color: gold;
+    margin:0%;
 }

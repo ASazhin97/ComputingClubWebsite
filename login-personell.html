@@ -10,7 +10,9 @@
     <script type = "text/javascript" src ="js/personell.js"></script>
 
 </head>
+
 <body  ng-controller="officerController">
+
 <!-- nav bar -->
 <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="home.html"><img class = "brand-img rounded-circle" src = "images/imageQ.jpg"></a>
@@ -24,27 +26,34 @@
         <a class="nav-link" href="login-home.html">Checklists<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active rounded">
+
         <a class="nav-link" href="login-personell.html">Personell<span class="sr-only"></span></a>
+
       </li>
       <li class="nav-item rounded">
         <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
       </li>
       <li class="nav-item rounded">
-        <a class="nav-link" href="login-experience.html">Experiances<span class="sr-only"></span></a>
+
+        <a class="nav-link" href="login-experience.html">Experiences<span class="sr-only"></span></a>
+
       </li>
       <li class="nav-item rounded">
         <a class="nav-link" href="login-events.html">Events<span class="sr-only"></span></a>
       </li>
 
     </ul>
-       
+
+
   </div>
    <div class = "action-buttons">
-        <a href = "apply.html"><div><button class = "btn btn-secondary">Apply Now</button></div></a>
-        <a href = "login.html"><div><button class = "btn btn-secondary">Admin Login</button></div></a>
+        <a href = "login-applications.html"><div><button class = "btn btn-secondary">Review Applications</button></div></a>
+        <a href = "home.html"><div><button class = "btn btn-secondary">Log Out</button></div></a>
+
     </div>
 </nav>
 <!-- nav bar end -->
+
 
 <button class = "btn btn-primary" style = "margin: 0%; margin-left: 20%; margin-top: 2%; width: 10%; " ng-click = "Save()">Save</button>
     
@@ -56,22 +65,26 @@
         <div class = "card" ng-repeat ="officer in officers | filter:{Type:'Student'}" >
             <div class = "card-body">
                 <img class = "card-img-top" src = "{{officer.Image}}">
+
                 <h4 class = "card-title" contenteditable="true">{{officer.Position}}</h4>
                 <h4 class = "card-title" contenteditable="true">{{officer.Name}}, {{officer.Class}}</h4>
             </div>
         </div>
     </div>
+
     
     <div class = "col-lg-4">
         <h2 class = "title-one">Professors</h2>
         <div class = "card" ng-repeat ="officer in officers | filter:{Type:'Professor'}" >
             <div class = "card-body">
                 <img class = "card-img-top" src = "{{officer.Image}}">
+
                 <h4 class = "card-title" contenteditable="true">{{officer.Position}}</h4>
                 <h4 class = "card-title" contenteditable="true">{{officer.Name}}, {{officer.Class}}</h4>
             </div>
         </div>
     </div>
+
     
 </div>
     
@@ -114,3 +127,4 @@
 
 
 </html>
+
