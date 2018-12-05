@@ -1,6 +1,18 @@
 var personellApp = angular.module('personellPageApp', []);
 
 personellApp.controller('officerController', ['$scope', function($scope){
+    $scope.new_personell = {};
+    
+    $scope.addPersonell = function(person){
+        $scope.officers.push(person);
+        
+        $scope.new_personell = {};
+    }
+    
+    $scope.Save = function(){
+        alert("Personell Page Saved");
+    }
+    
     $scope.officers = [
         {
             "Name":"David Lepore",

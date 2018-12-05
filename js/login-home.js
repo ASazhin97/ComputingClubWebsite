@@ -44,5 +44,7 @@ checklistApp.controller('checklistController', ['$scope', function($scope){
 
     $scope.addPoint = function (){
         $scope.current_points.push(getNewPointInput());
+        var input = document.getElementsByClassName('new-point-input');
+        input.innerHTML = ""
     }
 }]);
