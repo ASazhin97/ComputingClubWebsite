@@ -16,7 +16,7 @@ personellApp.controller('officerController', ['$scope', function($scope){
     $scope.officers = [
         {
             "Name":"David Lepore",
-            "Class":"Junior",
+            "Class":"Senior",
             "Position":"President",
             "Image":"images/david_lepore.jpg",
             "Type":"Student"
