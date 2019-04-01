@@ -73,7 +73,7 @@
       <div class="card" ng-repeat="officer in officers | filter:{Type:'Student'}">
         <div class="card-body">
           <!-- TODO: Check if src link works -->
-          <img class="card-img-top" src="{{officer.Image}}">
+          <img class="card-img-top" src="../public/{{officer.Image}}">
 
           <h4 class="card-title" contenteditable="true">{{officer.Position}}</h4>
           <h4 class="card-title" contenteditable="true">{{officer.Name}}, {{officer.Class}}</h4>
@@ -87,7 +87,7 @@
       <div class="card" ng-repeat="officer in officers | filter:{Type:'Professor'}">
         <div class="card-body">
           <!-- TODO: Check if src link works -->
-          <img class="card-img-top" src="{{officer.Image}}">
+          <img class="card-img-top" src="../public/{{officer.Image}}">
           <h4 class="card-title" contenteditable="true">{{officer.Position}}</h4>
           <h4 class="card-title" contenteditable="true">{{officer.Name}}, {{officer.Class}}</h4>
         </div>

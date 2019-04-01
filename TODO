@@ -5,3 +5,4 @@ Todo:
   ☐ Delete excess blank lines
   ☐ Remove horizantal scrolling on pages(eg home.html)
   ☐ Rename home.html to index.html
+  ☐ Fix "Uncaught SyntaxError: Unexpected token export" on all pages
