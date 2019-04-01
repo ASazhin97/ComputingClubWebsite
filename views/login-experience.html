@@ -2,21 +2,23 @@
 <html lang="en" ng-app="newsApp">
 
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/experience.css">
-  <script type='text/javascript' src="angular.min.js"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/css/experience.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+  <script src="../public/js/experience.js"></script>
 </head>
 
 <body ng-controller="newsController">
   <!-- nav bar -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="home.html"><img class="brand-img rounded-circle" src="images/imageQ.jpg"></a>
-    <h1 style = "color:white; margin-left: 10%; margin-bottom: 2%;">Quinnipiac Computing Club</h1>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="home.html"><img class="brand-img
+    rounded-circle" src="../public/images/imageQ.jpg"></a>
+    <h1 style="color:white; margin-left: 10%; margin-bottom: 2%;">Quinnipiac Computing Club</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -26,7 +28,7 @@
           <a class="nav-link" href="login-home.html">Checklists<span class="sr-only"></span></a>
         </li>
         <li class="nav-item rounded">
-          <a class="nav-link" href="login-personell.html">Personnel<span class="sr-only"></span></a>
+          <a class="nav-link" href="login-personnel.html">Personnel<span class="sr-only"></span></a>
         </li>
         <li class="nav-item rounded">
           <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
@@ -43,8 +45,12 @@
     </div>
     <div class="action-buttons">
 
-      <a href = "login-applications.html"><div><button class="btn btn-up btn-secondary btn-action">Review Applications</button></div></a>
-      <a href = "home.html"><div><button class = "btn btn-secondary btn-action">Log Out</button></div></a>
+      <a href="login-applications.html">
+        <div><button class="btn btn-up btn-secondary btn-action">Review Applications</button></div>
+      </a>
+      <a href="home.html">
+        <div><button class="btn btn-secondary btn-action">Log Out</button></div>
+      </a>
 
     </div>
   </nav>
@@ -57,7 +63,8 @@
         <input type="text" placeholder="Name" ng-model="new_article.name" style="width:50%" required />
       </div>
       <div class="form-row">
-        <input type="text" placeholder="YYYY/MM/DD" ng-model="new_article.date" style="width:50%" pattern="^\d{4}[\-\/\s]?((((0[13578])|(1[02]))[\-\/\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\-\/\s]?(([0-2][0-9])|(30)))|(02[\-\/\s]?[0-2][0-9]))$"
+        <input type="text" placeholder="YYYY/MM/DD" ng-model="new_article.date" style="width:50%"
+          pattern="^\d{4}[\-\/\s]?((((0[13578])|(1[02]))[\-\/\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\-\/\s]?(([0-2][0-9])|(30)))|(02[\-\/\s]?[0-2][0-9]))$"
           required />
       </div>
       <div class="form-row">
@@ -67,12 +74,14 @@
       <hr>
       <div class="form-row">
         <label for="avatar" style="margin-right: 10px;">Image:</label>
-        <input type="file" id="avatar" name="avatar" id="imgUp" accept="image/png, image/jpeg" ng-model="new_article.image">
+        <input type="file" id="avatar" name="avatar" id="imgUp" accept="image/png, image/jpeg"
+          ng-model="new_article.image">
       </div>
       <hr>
 
       <div class="form-row">
-        <textarea ng-model="new_article.quote" placeholder="Quote..." rows='4' style="width:100%" maxlength="200" minlength="10" required></textarea>
+        <textarea ng-model="new_article.quote" placeholder="Quote..." rows='4' style="width:100%" maxlength="200"
+          minlength="10" required></textarea>
       </div>
       <div class="form-row">
         <button type="submit" class="btn btn-down">Add Experience</button>
@@ -83,13 +92,16 @@
   <!-- Display Article -->
   <!-- filter:consoleFilter | this should be used to filter through articles using consoleFilter function -->
   <div ng-repeat="article in articles | filter:searchFor |  orderBy: '-date'" class="panel panel-default">
-    <div class="panel-heading" >
-      <button type="button" id="close" class="close" style="color: red;" ng-click="removeArticle(article)">&times;</button>
+    <div class="panel-heading">
+      <button type="button" id="close" class="close" style="color: red;"
+        ng-click="removeArticle(article)">&times;</button>
       <p contenteditable="true"> {{ article.name }} </p>
     </div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-3"><img src="images/{{article.image}}" style='max-height: 100%; max-width: 100%;'></img></div>
+        <div class="col-md-3"><img src="../public/images/{{article.image}}"
+            style='max-height: 100%; max-width: 100%;'></img>
+        </div>
         <div class="col-md-9" contenteditable="true">{{ article.quote }}</div>
       </div>
     </div>
@@ -98,7 +110,7 @@
 
   <div style="clear: left"></div>
 
-  <script src="js/experience.js"></script>
+
 
 
 

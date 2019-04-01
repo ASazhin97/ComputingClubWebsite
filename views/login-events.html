@@ -1,99 +1,113 @@
 <!DOCTYPE html>
-<html ng-app = "EventsApp">
+<html ng-app="EventsApp">
+
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="http://code.angularjs.org/1.2.6/angular.js"></script>
-<script type="text/javascript" src = "js/events.js"></script>
-  <link rel = "stylesheet" href = "css/home.css">
-<link rel="stylesheet" href="css/login-events.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!-- TODO: Check why the home.css is linked here -->
+  <link rel="stylesheet" href="../public/css/home.css">
+  <link rel="stylesheet" href="../public/css/login-events.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+  <script type="text/javascript" src="../public/js/events.js"></script>
 
 </head>
+
 <body>
-<!-- nav bar -->
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="home.html"><img class = "brand-img rounded-circle" src = "images/imageQ.jpg"></a>
-    <h1 style = "color:white; margin-left: 10%; margin-bottom: 2%;">Quinnipiac Computing Club</h1>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="home.html"><img class="brand-img
+    rounded-circle" src="../public/images/imageQ.jpg"></a>
+    <h1 style="color:white; margin-left: 10%; margin-bottom: 2%;">Quinnipiac Computing Club</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
-    <ul class="top-list navbar-nav mr-auto">
-      <li class="nav-item rounded">
+    <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
+      <ul class="top-list navbar-nav mr-auto">
+        <li class="nav-item rounded">
 
-        <a class="nav-link" href="login-home.html">Checklist<span class="sr-only"></span></a>
+          <a class="nav-link" href="login-home.html">Checklist<span class="sr-only"></span></a>
 
-      </li>
-      <li class="nav-item rounded">
-        <a class="nav-link" href="login-personell.html">Personnel<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item rounded">
-        <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item rounded">
-        <a class="nav-link" href="login-experience.html">Experiences<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active rounded">
-        <a class="nav-link" href="login-events.html">Events<span class="sr-only"></span></a>
-      </li>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="login-personnel.html">Personnel<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="login-resources.html">Resources<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="login-experience.html">Experiences<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active rounded">
+          <a class="nav-link" href="login-events.html">Events<span class="sr-only"></span></a>
+        </li>
 
-    </ul>
+      </ul>
 
-  </div>
-    <div class = "action-buttons">
-        <a href = "login-applications.html"><div><button class = "btn btn-secondary">Review Applications</button></div></a>
-        <a href = "home.html"><div><button class = "btn btn-secondary">Log Out</button></div></a>
     </div>
-</nav>
-<!-- nav bar end -->
+    <div class="action-buttons">
+      <a href="login-applications.html">
+        <div><button class="btn btn-secondary">Review Applications</button></div>
+      </a>
+      <a href="home.html">
+        <div><button class="btn btn-secondary">Log Out</button></div>
+      </a>
+    </div>
+  </nav>
+  <!-- nav bar end -->
 
-<div class = "row row-one">
+  <div class="row row-one">
     <!-- cvents coloumn-->
-    <div class = "col-lg-3 col-sm-12" style = "text-align: center; margin-left:5%; margin-right: 5%;" ng-controller = "eventController">
-        <h1  style = "color:white;"> Upcoming Events </h1>
-        <div class = "card" ng-repeat = "event in events" style = "margin-top: 1%;">
-            <div class = "card-header" contenteditable="true">{{event.Title}}</div>
-            <div class = "card-body">
-                <p contenteditable="true">{{event.Description}}</p>
-                <p><b>Date: </b><span contenteditable="true">{{event.Date}}</span></p>
-
-            </div>
+    <div class="col-lg-3 col-sm-12" style="text-align: center; margin-left:5%; margin-right: 5%;"
+      ng-controller="eventController">
+      <h1 style="color:white;"> Upcoming Events </h1>
+      <div class="card" ng-repeat="event in events" style="margin-top: 1%;">
+        <div class="card-header" contenteditable="true">{{event.Title}}</div>
+        <div class="card-body">
+          <p contenteditable="true">{{event.Description}}</p>
+          <p><b>Date: </b><span contenteditable="true">{{event.Date}}</span></p>
 
         </div>
-        <form class = "form-vertical" name = "EventForm" ng-submit = "addEvent(new_event)">
-        <div class = "form-group">
-            <label class = "new-event-label">Event Name:</label>
-            <input type="text" class = "form-control" placeholder="Name" ng-model = "new_event.Title" required>
+
+      </div>
+      <form class="form-vertical" name="EventForm" ng-submit="addEvent(new_event)">
+        <div class="form-group">
+          <label class="new-event-label">Event Name:</label>
+          <input type="text" class="form-control" placeholder="Name" ng-model="new_event.Title" required>
         </div>
 
-        <div class = "form-group">
-            <label class = "new-event-label">Description:</label>
-            <textarea class = "form-control" placeholder="Description" ng-model = "new_event.Description"></textarea>
+        <div class="form-group">
+          <label class="new-event-label">Description:</label>
+          <textarea class="form-control" placeholder="Description" ng-model="new_event.Description"></textarea>
         </div>
 
-        <div class = "form-group">
-            <label class = "new-event-label">Date:</label>
-            <input type="text" class = "form-control" placeholder="mm/dd/yyyy" ng-model = "new_event.Date" required>
+        <div class="form-group">
+          <label class="new-event-label">Date:</label>
+          <input type="text" class="form-control" placeholder="mm/dd/yyyy" ng-model="new_event.Date" required>
         </div>
 
 
-        <button type = "submit" class = "btn btn-secondary btn-down">Add Event</button>
-    </form>
+        <button type="submit" class="btn btn-secondary btn-down">Add Event</button>
+      </form>
     </div>
 
     <!-- calendar coloumn-->
-    <div class = " col-sm- 12 col-lg-7">
-        <a href="https://calendar.google.com/calendar/b/2?cid=NXBldGRyNXM4ZTZxdnI5bmFtMzdlMmJucXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"><button class = "btn btn-down btn-secondary" style="margin-bottom: 2%;">Edit Calendar</button></a>
+    <div class=" col-sm- 12 col-lg-7">
+      <a
+        href="https://calendar.google.com/calendar/b/2?cid=NXBldGRyNXM4ZTZxdnI5bmFtMzdlMmJucXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"><button
+          class="btn btn-down btn-secondary" style="margin-bottom: 2%;">Edit Calendar</button></a>
 
 
-        <iframe src="https://calendar.google.com/calendar/b/2/embed?height=800&amp;wkst=1&amp;bgcolor=%23000099&amp;src=5petdr5s8e6qvr9nam37e2bnqs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="80%" height="700" frameborder="0" scrolling="no"></iframe>
+      <iframe
+        src="https://calendar.google.com/calendar/b/2/embed?height=800&amp;wkst=1&amp;bgcolor=%23000099&amp;src=5petdr5s8e6qvr9nam37e2bnqs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York"
+        style="border:solid 1px #777" width="80%" height="700" frameborder="0" scrolling="no"></iframe>
     </div>
 
 
-</div>
+  </div>
 
 
 
