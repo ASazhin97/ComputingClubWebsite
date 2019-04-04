@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ASazhin97/ComputingClubWebsite/issues"
   },
-  "homepage": "https://github.com/ASazhin97/ComputingClubWebsite#readme"
+  "homepage": "https://github.com/ASazhin97/ComputingClubWebsite#readme",
+  "dependencies": {
+    "mongoose": "^5.4.22"
+  }
 }
