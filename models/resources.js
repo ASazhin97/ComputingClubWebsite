@@ -6,7 +6,7 @@ const ResourceSchema = Schema({
 	link: String,
 	category: {
 		type: String,
-		enum: []
+		enum: ['GIT', 'JAVA', 'SCALA', 'ANDROID', 'HTML']
 	}
 });
 
