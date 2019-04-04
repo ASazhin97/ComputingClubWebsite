@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="personnelPageApp">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/css/personnel.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+  <script type="text/javascript" src="../public/js/personnel.js"></script>
+
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="home.html"><img class="brand-img
+    rounded-circle" src="../public/images/imageQ.jpg"></a>
+    <h1 style="color:white; margin-left: 10%; margin-bottom: 2%;">Quinnipiac Computing Club</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
+      <ul class="top-list navbar-nav mr-auto">
+        <li class="nav-item rounded">
+          <a class="nav-link" href="home.html">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active rounded">
+          <a class="nav-link" href="personnel.html">Personnel<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="resources.html">Resources<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item rounded">
+
+          <a class="nav-link" href="experience.html">Experiances<span class="sr-only"></span></a>
+
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="events.html">Events<span class="sr-only"></span></a>
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="action-buttons">
+      <a href="apply.html">
+        <div><button class="btn btn-secondary">Apply Now</button></div>
+      </a>
+      <a href="login.html">
+        <div><button class="btn btn-secondary">Admin Login</button></div>
+      </a>
+    </div>
+  </nav>
+  <!-- nav bar end -->
+
+  <div class="row row-one" ng-controller="officerController">
+    <div class="col-lg-7" style="margin:1%">
+      <h2 class="title-one">Computing Club Officers</h2>
+      <div class="card" ng-repeat="officer in officers | filter:{Type:'Student'}">
+        <div class="card-body">
+          <img class="card-img-top" src="../public/{{officer.Image}}">
+          <h4 class="card-title">{{officer.Position}}</h4>
+          <h4 class="card-title">{{officer.Name}}, {{officer.Class}}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4" style="margin:1%">
+      <h2 class="title-one">Professors</h2>
+      <div class="card" ng-repeat="officer in officers | filter:{Type:'Professor'}">
+        <div class="card-body">
+          <img class="card-img-top" src="../public/{{officer.Image}}">
+          <h4 class="card-title">{{officer.Position}}</h4>
+          <h4 class="card-title">{{officer.Name}}, {{officer.Class}}</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+
+</html>

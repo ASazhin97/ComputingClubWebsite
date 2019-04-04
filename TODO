@@ -1,0 +1,8 @@
+Todo:
+  ☐ Move script tags to the end of body tag
+  ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
+  ☐ Ensure that everyone uses same formatting style
+  ☐ Delete excess blank lines
+  ☐ Remove horizantal scrolling on pages(eg home.html)
+  ☐ Rename home.html to index.html
+  ☐ Fix "Uncaught SyntaxError: Unexpected token export" on all pages
