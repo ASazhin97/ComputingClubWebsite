@@ -23,7 +23,7 @@ dbConnection.once('open', () => {
 		lastName: 'Doe',
 		major: 'Business',
 		summary: 'Hi I\'m John the business major',
-		type: typeEnums[0],
+		type: typeEnums[0]
 	});
 	// Save the user to the db
 	User.create(newUser, (err, user) => {
