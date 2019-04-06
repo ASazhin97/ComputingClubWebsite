@@ -15,8 +15,8 @@ dbConnection.on('error', (err) => {
 dbConnection.once('open', () => {
 	// Create an admin using the model
 	let newAdmin = new Admin({
-    username: 'jjdoe',
-  	passwordHash: 'Password123'
+		username: 'jjdoe',
+		passwordHash: 'Password123'
 	});
 	// Save the admin to the db
 	Admin.create(newAdmin, (err, admin) => {
