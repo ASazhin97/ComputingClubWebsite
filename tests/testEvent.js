@@ -16,7 +16,7 @@ dbConnection.once('open', () => {
 	// Create an event using the model
 	let newEvent = new Event({
 		name: 'Hackathon Spring 2019',
-		date: new Date("April 6, 2019 09:30:00"),
+		date: new Date('April 6, 2019 09:30:00'),
 		time: '9:30AM - 6:30PM',
 		summary: 'Rapid software development session!'
 	});
