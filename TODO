@@ -1,4 +1,5 @@
 Todo:
+  ☐ Configure ESLint to ensure consistent code style(Add as dependency or install extension)
   ☐ Move script tags to the end of body tag
   ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
   ☐ Ensure that everyone uses same formatting style
