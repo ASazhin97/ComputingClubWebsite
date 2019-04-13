@@ -1,29 +1,13 @@
 {
-    "env": {
-        "es6": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 2015
-    },
-    "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-console": "off"
-    }
+  "env": {
+    "es6": true
+  },
+  "extends": ["google", "plugin:angular/johnpapa"],
+  "rules": {
+    "angular/file-name": "off",
+    "prefer-arrow-callback": "error",
+    "prefer-template": "error",
+    "angular/controller-as-vm": [2, "viewModel"],
+    "require-jsdoc": "off"
+  }
 }

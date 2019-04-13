@@ -18,5 +18,10 @@
   "homepage": "https://github.com/ASazhin97/ComputingClubWebsite#readme",
   "dependencies": {
     "mongoose": "^5.4.22"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-angular": "^4.0.0"
   }
 }
