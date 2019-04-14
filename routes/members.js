@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
 const auth = require('./auth');
+const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
 // Admin only routes

@@ -1,10 +1,7 @@
 const express = require('express');
+const auth = require('./auth');
 const router = express.Router();
-
-const verifyAdmin = (req, res, next) => {
-  res.append('Admin', 'YES');
-  next();
-};
+const verifyAdmin = auth.verifyAdmin;
 
 router.get('/', (req, res) => {
   res.send('<h1>Personnel Page</h1>');
