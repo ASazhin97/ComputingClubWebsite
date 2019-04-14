@@ -14,7 +14,7 @@ const config = require('./config');
 
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -40,11 +40,6 @@ dbConnection
     .on('error', console.error.bind(console, 'MongoDB connection error:'));
 dbConnection.once('open', () => {
   console.log('Connected to Database');
-});
-
-app.use((req, res, next) => {
-  console.log(req.user);
-  next();
 });
 
 app.use('/', index);

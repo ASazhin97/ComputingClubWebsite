@@ -3,7 +3,6 @@ const passport = require('passport');
 
 module.exports.registerAdmin = (req, res, next) => {
   console.log('Registering user');
-  console.log(req.body);
   Admin.register(new Admin({
     username: req.body.username,
   }),
@@ -21,7 +20,8 @@ module.exports.loginAdmin = passport.authenticate('local',
     {
       failureRedirect: '/admin/login',
       successRedirect: '/',
-    });
+    }
+);
 
 module.exports.verifyAdmin = (req, res, next) => {
   if (req.user){

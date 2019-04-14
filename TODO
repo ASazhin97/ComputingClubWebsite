@@ -1,6 +1,9 @@
 Todo:
   ✔ Configure ESLint to ensure consistent code style(Add as dependency or install extension) @done(19-04-11 15:18)
     ✔ Install ESLint extension and add "eslint.autoFixOnSave: true" setting @done(19-04-12 22:05)
+  ☐ Use confirmation messages instead of redirects when admins register/login
+  ☐ Write code to create mongodb 'documents' on routes
+  ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts
   ☐ Fix linting errors for angularjs files
   ☐ Move script tags to the end of body tag
   ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
