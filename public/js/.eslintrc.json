@@ -1,7 +1,11 @@
 {
+  "root": true,
   "env": {
-    "es6": true,
-    "browser": true
+    "es6": true
   },
-  "extends": ["plugin:angular/johnpapa"]
+  "extends": ["plugin:angular/johnpapa"],
+  "rules": {
+    "no-console": "error",
+    "max-len": "off"
+  }
 }
