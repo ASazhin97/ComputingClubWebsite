@@ -1,52 +1,52 @@
-.nav-col{
-    background-color: midnightblue;
-    text-align: left;
+.nav-col {
+  background-color: midnightblue;
+  text-align: left;
 }
 
-.title{
-    color: white;
+.title {
+  color: white;
 }
 
-.list{
-    color: white;
-    background-color: gold;
-    padding:2%;
-    text-align: left;
+.list {
+  color: white;
+  background-color: gold;
+  padding: 2%;
+  text-align: left;
 }
 
-.list-item{
-    background-color: midnightblue;
-    margin:1%;
-    font-size: 150%;
-    padding:1%;
+.list-item {
+  background-color: midnightblue;
+  margin: 1%;
+  font-size: 150%;
+  padding: 1%;
 }
 
-.new-point-input{
-    width: 80%;
+.new-point-input {
+  width: 80%;
 }
 
-.add-btn{
-    background-color: gold;
-    width:10%;
-    margin: 1%;
+.add-btn {
+  background-color: gold;
+  width: 10%;
+  margin: 1%;
 }
 
-.btn-add-event{
-    margin:0%;
+.btn-add-event {
+  margin: 0%;
 }
 
-.form-vertical{
-    text-align: left;
-    margin-left:5%;
+.form-vertical {
+  text-align: left;
+  margin-left: 5%;
 }
 
-.new-event-label{
-    color:white;
-    font-size: 120%;
+.new-event-label {
+  color: white;
+  font-size: 120%;
 }
 
 .btn-down {
   color: black;
-    background-color: gold;
-    margin:0%;
+  background-color: gold;
+  margin: 0%;
 }

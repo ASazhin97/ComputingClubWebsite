@@ -1,17 +1,17 @@
-.login-label{
-    font-size: 150%;
-    color: white;
+.login-label {
+  font-size: 150%;
+  color: white;
 }
 
-.login-col{
-    text-align: center;
-    padding-left: 5%;
-    padding-right: 5%;
+.login-col {
+  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.login-btn{
-    margin: 0%;
-    width: 20%;
-    background-color: gold;
-    
+.login-btn {
+  margin: 0%;
+  width: 20%;
+  background-color: gold;
+
 }

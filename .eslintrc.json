@@ -1,13 +1,19 @@
 {
   "env": {
-    "es6": true
+    "es6": true,
+    "node": true
   },
-  "extends": ["google", "plugin:angular/johnpapa"],
+  "extends": ["eslint:recommended", "google"],
   "rules": {
-    "angular/file-name": "off",
     "prefer-arrow-callback": "error",
     "prefer-template": "error",
-    "angular/controller-as-vm": [2, "viewModel"],
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "no-console": "off",
+    "space-before-blocks": ["error", "never"],
+    "no-whitespace-before-property": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-spacing": "error",
+    "new-cap": "off",
+    "max-len": "warn"
   }
 }
