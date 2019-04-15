@@ -7,16 +7,22 @@ module.exports.registerAdmin = (req, res, next) => {
   Admin.register(new Admin({
     username: req.body.username,
   }),
-  req.body.password,
-  ((err, account) => {
+  req.body.password, ((err, account) => {
     if (err){
       return next(err);
     }
     log.info('User registered');
-    res.redirect('/');
+    req.login(account, err => {
+      if (err){
+        return next(err);
+      }
+      log.info('User was logged in');
+      res.json('Registration successful');
+    });
   }));
 };
 
+// TODO: Implement connect-flash to show success/failure messages
 module.exports.loginAdmin = passport.authenticate('local',
     {
       failureRedirect: '/admin/login',
@@ -28,5 +34,7 @@ module.exports.verifyAdmin = (req, res, next) => {
   if (req.user){
     return next();
   }
-  res.redirect('/admin/login');
+  const err = new Error('Not authorized');
+  err.status = 401;
+  next(err);
 };

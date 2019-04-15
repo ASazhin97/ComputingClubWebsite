@@ -15,9 +15,7 @@ router.route('/login')
     .get((req, res) => {
       res.send('<h1>Admin Login GET</h1>');
     })
-    .post(auth.loginAdmin, (req, res) => {
-      res.redirect('/');
-    });
+    .post(auth.loginAdmin);
 
 router.get('/logout', (req, res) => {
   req.logout();

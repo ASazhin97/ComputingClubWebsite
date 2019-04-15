@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const app = express();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -13,9 +12,10 @@ const index = require('./routes/index');
 const Admin = require('./models/admin');
 const config = require('./config');
 
+const app = express();
 const port = 3000;
 
-log.setDefaultLevel(0);
+log.setDefaultLevel(2);
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -56,7 +56,8 @@ app.use((req, res, next) => {
 
 // Error Handler
 app.use((err, req, res, next) => {
-  log.error(err);
+  log.trace(err);
+  log.error(err.message);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

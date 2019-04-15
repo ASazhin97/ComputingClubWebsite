@@ -29,7 +29,9 @@ router.post('/', (req, res, next) => {
   });
   // Save the resource
   Resource.create(newResource, (err, resource) => {
-    if (err) return next(err);
+    if (err){
+      return next(err);
+    }
     res.json(resource);
   });
 });
