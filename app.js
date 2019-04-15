@@ -7,6 +7,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const log = require('loglevel');
+const chalk = require('chalk');
+const prefix = require('loglevel-plugin-prefix');
 
 const index = require('./routes/index');
 const Admin = require('./models/admin');
@@ -15,7 +17,27 @@ const config = require('./config');
 const app = express();
 const port = 3000;
 
-log.setDefaultLevel(2);
+const colors = {
+  TRACE: chalk.magenta,
+  DEBUG: chalk.cyan,
+  INFO: chalk.blue,
+  WARN: chalk.yellow,
+  ERROR: chalk.red,
+};
+log.setDefaultLevel(1);
+prefix.reg(log);
+prefix.apply(log, {
+  format(level, name, timestamp){
+    const chalkTimestap = chalk.gray(`[${timestamp}]`);
+    return `${chalkTimestap} ${colors[level.toUpperCase()](level)}:`;
+  },
+});
+prefix.apply(log.getLogger('critical'), {
+  format(level, name, timestamp){
+    return chalk.red.bold(`[${timestamp}] ${level} ${name}:`);
+  },
+});
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
