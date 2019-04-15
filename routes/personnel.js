@@ -37,14 +37,14 @@ router
       });
 
       // save
-      Resource.create(newResource, (err, resources) => {
+      Resource.create(newResource, (err, resources, next) => {
         if (err){
           return next(err);
         }
         res.json(resources);
       });
     })
-    .put(verifyAdmin, (req, res) => {
+    .put(verifyAdmin, (req, res, next) => {
       Resource.findByIdAndUpdate(
           req.params.id,
           req.body.resource,
@@ -56,7 +56,7 @@ router
           }
       );
     })
-    .delete(verifyAdmin, (req, res) => {
+    .delete(verifyAdmin, (req, res, next) => {
       Resource.findByIdAndDelete(req.params.id, (err, resource) => {
         if (err){
           return next(err);
