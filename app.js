@@ -28,7 +28,8 @@ log.setDefaultLevel(1);
 prefix.reg(log);
 prefix.apply(log, {
   format(level, name, timestamp){
-    return `${chalk.gray(`[${timestamp}]`)} ${colors[level.toUpperCase()](level)}:`;
+    const chalkTimestap = chalk.gray(`[${timestamp}]`);
+    return `${chalkTimestap} ${colors[level.toUpperCase()](level)}:`;
   },
 });
 prefix.apply(log.getLogger('critical'), {
