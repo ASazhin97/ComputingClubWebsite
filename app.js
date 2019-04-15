@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
+const log = require('loglevel');
 
 const index = require('./routes/index');
 const Admin = require('./models/admin');
@@ -14,6 +15,7 @@ const config = require('./config');
 
 const port = 3000;
 
+log.setDefaultLevel(0);
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -36,10 +38,11 @@ mongoose.connect(config.mongoURL, {
 });
 
 const dbConnection = mongoose.connection;
-dbConnection
-    .on('error', console.error.bind(console, 'MongoDB connection error:'));
+dbConnection.on('error', err => {
+  log.error('MongoDB connection error:');
+});
 dbConnection.once('open', () => {
-  console.log('Connected to Database');
+  log.info('Connected to Database');
 });
 
 app.use('/', index);
@@ -53,6 +56,7 @@ app.use((req, res, next) => {
 
 // Error Handler
 app.use((err, req, res, next) => {
+  log.error(err);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -65,5 +69,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Sever started on ${port}`);
+  log.info(`Sever started on ${port}`);
 });

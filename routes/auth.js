@@ -1,8 +1,9 @@
 const Admin = require('../models/admin');
 const passport = require('passport');
+const log = require('loglevel');
 
 module.exports.registerAdmin = (req, res, next) => {
-  console.log('Registering user');
+  log.info('Registering user');
   Admin.register(new Admin({
     username: req.body.username,
   }),
@@ -11,7 +12,7 @@ module.exports.registerAdmin = (req, res, next) => {
     if (err){
       return next(err);
     }
-    console.log('User registered');
+    log.info('User registered');
     res.redirect('/');
   }));
 };
