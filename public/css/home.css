@@ -1,68 +1,70 @@
-body{
-    background-color: midnightblue;
+body {
+  background-color: midnightblue;
 }
 
-.brand-img{
-    width: 20%;
+.brand-img {
+  width: 20%;
 }
 
-.navbar{
-    height: 12%;
-    background-image: url("../images/Q_Plaid.jpg");
+.navbar {
+  height: 12%;
+  background-image: url("../images/Q_Plaid.jpg");
 }
 
-.nav-link{
-    color: white;
-}
-.nav-item{
-    font-size: 20px;
-    background-color: midnightblue;
-    margin-left: 2%;
-    margin-right: 2%;
+.nav-link {
+  color: white;
 }
 
-.active{
-    background-color: gold;
+.nav-item {
+  font-size: 20px;
+  background-color: midnightblue;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
-.bottom-align{
-    position: absolute;
-    bottom: 0;
-    margin-left: 35%;
-    margin-right: 65%;
-    
+.active {
+  background-color: gold;
 }
 
-.action-buttons{
-    position: absolute;
-    right:0;
-    margin-right: 1%;
-    float:right;
-    align-self: flex-start;
+.bottom-align {
+  position: absolute;
+  bottom: 0;
+  margin-left: 35%;
+  margin-right: 65%;
+
 }
 
-.btn{
-    color: white;
-    background-color: midnightblue;
-    width: 100%;
-    margin: 5%;
-    
+.action-buttons {
+  position: absolute;
+  right: 0;
+  margin-right: 1%;
+  float: right;
+  align-self: flex-start;
 }
 
-.row-one{
-    text-align: center;
-    margin-top: 2%;
+.btn {
+  color: white;
+  background-color: midnightblue;
+  width: 100%;
+  margin: 5%;
+
+}
+
+.row-one {
+  text-align: center;
+  margin-top: 2%;
 }
 
 .carousel-inner img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.col-lg-12{
-    padding-left: 20%;
-    padding-right: 20%;
+.col-lg-12 {
+  padding-left: 20%;
+  padding-right: 20%;
 }
-.carousel{
-    width: 100%;
+
+.carousel {
+  width: 100%;
 }
