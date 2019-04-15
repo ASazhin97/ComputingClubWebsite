@@ -51,7 +51,8 @@ router.get('/category/:name', (req, res, next) => {
 // TODO: Admin only routes. (Should GET be admin only?)
 // GET/PUT/DELETE /resources/:id
 // Returns/Updates/Deletes one resource by the resource's id
-router.route('/:id')
+router
+    .route('/:id')
     .all(verifyAdmin)
     .get((req, res, next) => {
       Resource.findById(req.params.id, (err, resource) => {
@@ -61,16 +62,19 @@ router.route('/:id')
         res.json(resource);
       });
     })
-    .put((req, res, next) => {
-      Resource.findByIdAndUpdate(req.params.id, req.body.resource,
+    .put(verifyAdmin, (req, res) => {
+      Resource.findByIdAndUpdate(
+          req.params.id,
+          req.body.resource,
           (err, resource) => {
             if (err){
               return next(err);
             }
             res.json(resource);
-          });
+          }
+      );
     })
-    .delete((req, res, next) => {
+    .delete(verifyAdmin, (req, res) => {
       Resource.findByIdAndDelete(req.params.id, (err, resource) => {
         if (err){
           return next(err);
