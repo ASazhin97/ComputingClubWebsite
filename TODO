@@ -1,6 +1,8 @@
 Todo:
   ✔ Configure ESLint to ensure consistent code style(Add as dependency or install extension) @done(19-04-11 15:18)
     ✔ Install ESLint extension and add "eslint.autoFixOnSave: true" setting @done(19-04-12 22:05)
+  ☐ Export enums for use across multiple files
+  ☐ Hide mongourl in environment variable and change password
   ☐ Use confirmation messages instead of redirects when admins register/login
   ☐ Write code to create mongodb 'documents' on routes
   ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts

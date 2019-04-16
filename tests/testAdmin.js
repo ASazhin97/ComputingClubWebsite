@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Admin = require('../models/admin');
+const config = require('../config');
 
-const connectionURL = 'mongodb+srv://SER320User:etr21HbP7gaHLWkx@thecluster-muogm.mongodb.net/ser320db?retryWrites=true';
+const connectionURL = config.mongoURL;
 mongoose.connect(connectionURL, {
   useNewUrlParser: true,
 });
