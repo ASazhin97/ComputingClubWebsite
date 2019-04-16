@@ -21,7 +21,7 @@ const ApplicationSchema = Schema({
   },
   status: {
     type: String,
-    required: true,
+    default: 'PENDING',
   },
 });
 
