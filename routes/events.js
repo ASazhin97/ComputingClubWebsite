@@ -1,59 +1,61 @@
 const express = require('express');
 const auth = require('./auth');
-const Resource = require('../models/event');
+const Event = require('../models/event');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
+// GET /events
+// Returns all events
 router.get('/', (req, res, next) => {
-  Resource.find({}, (err, resources) => {
+  Event.find({}, (err, events) => {
     if (err){
       return next(err);
     }
-    res.json(resources);
+    res.json(events);
+  });
+});
+
+// POST /events
+// Creates one event
+router.post((req, res, next) => {
+  // Create an event using the model
+  const newEvent = new Event(req.body.event);
+  // Save the event
+  Event.create(newEvent, (err, event) => {
+    if (err){
+      return next(err);
+    }
+    res.json(event);
   });
 });
 
 // TODO: Admin only routes. (Should GET be admin only?)
-router
-    .route('/:id')
+// GET/PUT/DELETE /events/:id
+// Returns/Updates/Deletes one event by the event's id
+router.route('/:id')
     .all(verifyAdmin)
     .get((req, res, next) => {
-      Resource.findById(req.params.id, (err, resources) => {
+      Event.findById(req.params.id, (err, events) => {
         if (err){
           return next(err);
         }
-        res.json(resources);
-      });
-    })
-    .post((req, res, next) => {
-      const newResource = new Resource({
-        name: req.body.name,
-        date: req.body.date,
-        time: req.body.time,
-        summary: req.body.summary,
-      });
-
-      Resource.create(newResource, (err, resource) => {
-        if (err){
-          return next(err);
-        }
-        res.json(resource);
+        res.json(events);
       });
     })
     .put((req, res, next) => {
-      Resource.findByIdAndUpdate(req.params.id, (err, resource) => {
+      Event.findByIdAndUpdate(req.params.id, (err, event) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(event);
       });
     })
     .delete((req, res, next) => {
-      Resource.findByIdAndDelete(req.params.id, (err, resource) => {
+      Event.findByIdAndDelete(req.params.id, (err, event) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(event);
       });
     });
 
