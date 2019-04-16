@@ -29,11 +29,9 @@ router.post((req, res, next) => {
   });
 });
 
-// TODO: Admin only routes. (Should GET be admin only?)
 // GET/PUT/DELETE /events/:id
 // Returns/Updates/Deletes one event by the event's id
 router.route('/:id')
-    .all(verifyAdmin)
     .get((req, res, next) => {
       Event.findById(req.params.id, (err, events) => {
         if (err){
@@ -42,7 +40,7 @@ router.route('/:id')
         res.json(events);
       });
     })
-    .put((req, res, next) => {
+    .put(verifyAdmin, (req, res, next) => {
       Event.findByIdAndUpdate(req.params.id, (err, event) => {
         if (err){
           return next(err);
@@ -50,7 +48,7 @@ router.route('/:id')
         res.json(event);
       });
     })
-    .delete((req, res, next) => {
+    .delete(verifyAdmin, (req, res, next) => {
       Event.findByIdAndDelete(req.params.id, (err, event) => {
         if (err){
           return next(err);
