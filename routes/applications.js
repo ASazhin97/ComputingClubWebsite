@@ -1,66 +1,61 @@
 const express = require('express');
 const auth = require('./auth');
-const Resource = require('../models/user');
+const Application = require('../models/application');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
-router.get('/', verifyAdmin, (req, res, next) => {
-  Resource.find({}, (err, resources) => {
+// All routes are admin only
+router.use(verifyAdmin);
+
+// GET /applications
+// Returns all applications
+router.get('/', (req, res, next) => {
+  Application.find({}, (err, applications) => {
     if (err){
       return next(err);
     }
-    res.json(resources);
+    res.json(applications);
   });
 });
 
-router
-    .route('/:id')
-    .all(verifyAdmin)
+// GET /PUT/DELETE /applications/:id
+// Returns/Updates/Deletes one application by the application's id
+router.route('/:id')
     .get((req, res, next) => {
-      Resource.findById(req.params.id, (err, resource) => {
+      Application.findById(req.params.id, (err, application) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(application);
       });
     })
     .post((req, res, next) => {
-      const newResource = new Resource({
-        year: req.body.title,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        major: req.body.major,
-        type: req.body.type,
-        status: req.body.status,
-        imagePath: req.body.imagePath,
-      });
-
-      // save
-      Resource.create(newResource, (err, resources, next) => {
+      // Create an application using the model
+      const newApplication = new Application(req.body.application);
+      // Save the application
+      Application.create(newApplication, (err, application) => {
         if (err){
           return next(err);
         }
-        res.json(resources);
+        res.json(application);
       });
     })
     .put((req, res, next) => {
-      Resource.findByIdAndUpdate(
-          req.params.id,
-          req.body.resource,
-          (err, resource) => {
+      Application.findByIdAndUpdate(req.params.id, req.body.application,
+          (err, application) => {
             if (err){
               return next(err);
             }
-            res.json(resource);
+            res.json(application);
           }
       );
     })
     .delete((req, res, next) => {
-      Resource.findByIdAndDelete(req.params.id, (err, resource) => {
+      Application.findByIdAndDelete(req.params.id, (err, application) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(application);
       });
     });
 
