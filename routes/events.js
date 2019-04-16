@@ -1,26 +1,60 @@
 const express = require('express');
 const auth = require('./auth');
+const Resource = require('../models/event');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
-router.get('/', (req, res) => {
-  res.send('<h1>Events Page</h1>');
+router.get('/', (req, res, next) => {
+  Resource.find({}, (err, resources) => {
+    if (err){
+      return next(err);
+    }
+    res.json(resources);
+  });
 });
 
 // TODO: Admin only routes. (Should GET be admin only?)
-router.route('/:id')
+router
+    .route('/:id')
     .all(verifyAdmin)
-    .get((req, res) => {
-      res.send('<h1>Events Page: GET ID</h1>');
+    .get((req, res, next) => {
+      Resource.findById(req.params.id, (err, resources) => {
+        if (err){
+          return next(err);
+        }
+        res.json(resources);
+      });
     })
-    .post((req, res) => {
-      res.send('<h1>Events Page: POST ID</h1>');
+    .post((req, res, next) => {
+      const newResource = new Resource({
+        name: req.body.name,
+        date: req.body.date,
+        time: req.body.time,
+        summary: req.body.summary,
+      });
+
+      Resource.create(newResource, (err, resource) => {
+        if (err){
+          return next(err);
+        }
+        res.json(resource);
+      });
     })
-    .put((req, res) => {
-      res.send('<h1>Events Page: PUT ID</h1>');
+    .put((req, res, next) => {
+      Resource.findByIdAndUpdate(req.params.id, (err, resource) => {
+        if (err){
+          return next(err);
+        }
+        res.json(resource);
+      });
     })
-    .delete((req, res) => {
-      res.send('<h1>Events Page: DELETE ID</h1>');
+    .delete((req, res, next) => {
+      Resource.findByIdAndDelete(req.params.id, (err, resource) => {
+        if (err){
+          return next(err);
+        }
+        res.json(resource);
+      });
     });
 
 module.exports = router;
