@@ -1,63 +1,74 @@
 const express = require('express');
 const auth = require('./auth');
-const Resource = require('../models/user');
+const Member = require('../models/member');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
-// Admin only routes
-router.all(verifyAdmin);
-
+// GET /members
+// Returns all members
 router.get('/', (req, res, next) => {
-  Resource.find({}, (err, resources) => {
+  Member.find({}, (err, members) => {
     if (err){
       return next(err);
     }
-    res.json(resources);
+    res.json(members);
   });
 });
 
-router
-    .route('/:id')
-    .get((req, res, next) => {
-    // dont think we need an ID based get for members
-      res.send('<h1>Members Page: GET ID</h1>');
-    })
-    .post((req, res, next) => {
-      const newResource = new Resource({
-        year: req.body.title,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        major: req.body.major,
-        type: req.body.type,
-        status: req.body.status,
-        imagePath: req.body.imagePath,
-      });
+// POST /members
+// Creates one member
+router.post(verifyAdmin, (req, res, next) => {
+  // Create a member using the model
+  const newMember = new Member(req.body.member);
+  // Save the member
+  Member.create(newMember, (err, member) => {
+    if (err){
+      return next(err);
+    }
+    res.json(member);
+  });
+});
 
-      Resource.create(newResource, (err, resource) => {
+// TODO: Do validation to ensure role is valid. Use enums from model(exclude:
+// applicants)
+// GET /members/role/:role
+// Returns all members that have the role passed by the param
+router.get('/role/:role', (req, res, next) => {
+  Member.find({type: req.params.role}, (err, members) => {
+    if (err){
+      return next(err);
+    }
+    res.json(members);
+  });
+});
+
+// GET/PUT/DELETE /members/:id
+// Returns/Updates/Deletes one member by the member's id
+router.route('/:id')
+    .get((req, res, next) => {
+      Member.findById(req.params.id, (err, member) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(member);
       });
     })
-    .put((req, res, next) => {
-      Resource.findByIdAndUpdate(
-          req.params.is,
-          req.body.resource,
-          (err, resource) => {
+    .put(verifyAdmin, (req, res, next) => {
+      Member.findByIdAndUpdate(req.params.is, req.body.member,
+          (err, member) => {
             if (err){
               return next(err);
             }
-            res.json(resource);
+            res.json(member);
           }
       );
     })
-    .delete((req, res) => {
-      Resource.findByIdAndDelete(req.params.id, (err, resource) => {
+    .delete(verifyAdmin, (req, res, next) => {
+      Member.findByIdAndDelete(req.params.id, (err, member) => {
         if (err){
           return next(err);
         }
-        res.json(resource);
+        res.json(member);
       });
     });
 

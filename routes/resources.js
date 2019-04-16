@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
 
 // TODO: Do validation to ensure category is valid. Use enums from model
 // GET /resources/category/:name
-// Returns all resources that are in the category 'name'
+// Returns all resources that have the category passed by the param
 router.get('/category/:name', (req, res, next) => {
   Resource.find({category: req.params.name}, (err, resources) => {
     if (err){
