@@ -21,12 +21,7 @@ router.get('/', (req, res, next) => {
 // Creates one resource
 router.post('/', (req, res, next) => {
   // Create a resource using the model
-  const newResource = new Resource({
-    title: req.body.title,
-    summary: req.body.summary,
-    link: req.body.link,
-    category: req.body.category,
-  });
+  const newResource = new Resource(req.body.resource);
   // Save the resource
   Resource.create(newResource, (err, resource) => {
     if (err){
@@ -51,8 +46,7 @@ router.get('/category/:name', (req, res, next) => {
 // TODO: Admin only routes. (Should GET be admin only?)
 // GET/PUT/DELETE /resources/:id
 // Returns/Updates/Deletes one resource by the resource's id
-router
-    .route('/:id')
+router.route('/:id')
     .all(verifyAdmin)
     .get((req, res, next) => {
       Resource.findById(req.params.id, (err, resource) => {
@@ -62,10 +56,8 @@ router
         res.json(resource);
       });
     })
-    .put(verifyAdmin, (req, res, next) => {
-      Resource.findByIdAndUpdate(
-          req.params.id,
-          req.body.resource,
+    .put((req, res, next) => {
+      Resource.findByIdAndUpdate(req.params.id, req.body.resource,
           (err, resource) => {
             if (err){
               return next(err);
@@ -74,7 +66,7 @@ router
           }
       );
     })
-    .delete(verifyAdmin, (req, res, next) => {
+    .delete((req, res, next) => {
       Resource.findByIdAndDelete(req.params.id, (err, resource) => {
         if (err){
           return next(err);
