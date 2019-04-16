@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 
 // POST /events
 // Creates one event
-router.post((req, res, next) => {
+router.post('/', (req, res, next) => {
   // Create an event using the model
   const newEvent = new Event(req.body.event);
   // Save the event

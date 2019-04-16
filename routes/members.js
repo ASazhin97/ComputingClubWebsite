@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 
 // POST /members
 // Creates one member
-router.post(verifyAdmin, (req, res, next) => {
+router.post('/', verifyAdmin, (req, res, next) => {
   // Create a member using the model
   const newMember = new Member(req.body.member);
   // Save the member
@@ -54,7 +54,7 @@ router.route('/:id')
       });
     })
     .put(verifyAdmin, (req, res, next) => {
-      Member.findByIdAndUpdate(req.params.is, req.body.member,
+      Member.findByIdAndUpdate(req.params.id, req.body.member,
           (err, member) => {
             if (err){
               return next(err);

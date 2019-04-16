@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 
 // POST /applications
 // Creates one application
-router.post((req, res, next) => {
+router.post('/', (req, res, next) => {
   // Create an application using the model
   const newApplication = new Application(req.body.application);
   // Save the application
