@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = Schema({
+const MemberSchema = Schema({
   year: {
     type: String,
     enum: ['FRESHMAN', 'SOPHOMORE', 'JUNIOR', 'SENIOR'],
@@ -32,4 +32,4 @@ const UserSchema = Schema({
   imagePath: String,
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Member', MemberSchema);

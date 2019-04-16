@@ -41,12 +41,13 @@ router.route('/:id')
       });
     })
     .put(verifyAdmin, (req, res, next) => {
-      Event.findByIdAndUpdate(req.params.id, (err, event) => {
-        if (err){
-          return next(err);
-        }
-        res.json(event);
-      });
+      Event.findByIdAndUpdate(req.params.id, req.body.event,
+          (err, event) => {
+            if (err){
+              return next(err);
+            }
+            res.json(event);
+          });
     })
     .delete(verifyAdmin, (req, res, next) => {
       Event.findByIdAndDelete(req.params.id, (err, event) => {
