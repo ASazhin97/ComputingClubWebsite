@@ -6,6 +6,7 @@ Todo:
   ☐ Add more log statements to routes?
   ☐ Export enums for use across multiple files
   ☐ Hide mongourl in environment variable and change password
+  ☐ Fix deprecation warning for mongoose by using findOne instead of findById
   ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts
   ☐ Fix linting errors for angularjs files
   ☐ Move script tags to the end of body tag
