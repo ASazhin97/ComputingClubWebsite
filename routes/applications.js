@@ -18,22 +18,25 @@ router.get('/', (req, res, next) => {
   });
 });
 
-// GET /PUT/DELETE /applications/:id
+// POST /applications
+// Creates one application
+router.post((req, res, next) => {
+  // Create an application using the model
+  const newApplication = new Application(req.body.application);
+  // Save the application
+  Application.create(newApplication, (err, application) => {
+    if (err){
+      return next(err);
+    }
+    res.json(application);
+  });
+});
+
+// GET/PUT/DELETE /applications/:id
 // Returns/Updates/Deletes one application by the application's id
 router.route('/:id')
     .get((req, res, next) => {
       Application.findById(req.params.id, (err, application) => {
-        if (err){
-          return next(err);
-        }
-        res.json(application);
-      });
-    })
-    .post((req, res, next) => {
-      // Create an application using the model
-      const newApplication = new Application(req.body.application);
-      // Save the application
-      Application.create(newApplication, (err, application) => {
         if (err){
           return next(err);
         }
