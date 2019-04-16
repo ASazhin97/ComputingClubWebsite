@@ -5,7 +5,7 @@ const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
 // Admin only routes
-router.use(verifyAdmin);
+router.all(verifyAdmin);
 
 router.get('/', (req, res, next) => {
   Resource.find({}, (err, resources) => {
