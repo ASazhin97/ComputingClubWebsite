@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const enums = require('../enums');
 
 const Schema = mongoose.Schema;
 
 const MemberSchema = Schema({
   year: {
     type: String,
-    enum: ['FRESHMAN', 'SOPHOMORE', 'JUNIOR', 'SENIOR'],
+    enum: Object.values(enums.years),
   },
   firstName: {
     type: String,
@@ -20,14 +21,14 @@ const MemberSchema = Schema({
     type: String,
     required: true,
   },
-  type: {
+  role: {
     type: String,
-    enum: ['MEMBER', 'OFFICER', 'APPLICANT', 'PROFESSOR'],
+    enum: Object.values(enums.roles),
     required: true,
   },
   status: {
     type: String,
-    enum: ['PENDING', 'APPROVED', 'DECLINED'],
+    enum: Object.values(enums.status),
   },
   imagePath: String,
 });

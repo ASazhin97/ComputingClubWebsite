@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const enums = require('../enums');
 
 const Schema = mongoose.Schema;
 
@@ -17,7 +18,7 @@ const ResourceSchema = Schema({
   },
   category: {
     type: String,
-    enum: ['GIT', 'JAVA', 'SCALA', 'ANDROID', 'HTML'],
+    enum: Object.values(enums.categories),
     required: true,
   },
 });

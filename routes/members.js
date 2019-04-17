@@ -1,13 +1,14 @@
 const express = require('express');
 const auth = require('./auth');
 const Member = require('../models/member');
+const enums = require('../enums');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
 // GET /members
 // Returns all members except applicants
 router.get('/', (req, res, next) => {
-  Member.find({type: {$ne: 'APPLICANT'}}, (err, members) => {
+  Member.find({role: {$ne: enums.roles.APPLICANT}}, (err, members) => {
     if (err){
       return next(err);
     }
@@ -35,12 +36,12 @@ router.post('/', verifyAdmin, (req, res, next) => {
 router.get('/role/:role', (req, res, next) => {
   // Only admins can see applicants
   const isAuthenticated = req.user ? true: false;
-  if (!isAuthenticated && req.params.role === 'APPLICANT'){
+  if (!isAuthenticated && req.params.role === enums.roles.APPLICANT){
     const err = new Error('Not authorized');
     err.status = 401;
     return next(err);
   }
-  Member.find({type: req.params.role}, (err, members) => {
+  Member.find({role: req.params.role}, (err, members) => {
     if (err){
       return next(err);
     }

@@ -4,8 +4,6 @@ const Resource = require('../models/resource');
 const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
-// const categoryEnums = Resource.schema.path('category').enumValues;
-
 // GET /resources
 // Returns all resources
 router.get('/', (req, res, next) => {
@@ -31,7 +29,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
-// TODO: Do validation to ensure category is valid. Use enums from model
+// TODO: Do validation to ensure category is valid.
 // GET /resources/category/:name
 // Returns all resources that have the category passed by the param
 router.get('/category/:name', (req, res, next) => {
