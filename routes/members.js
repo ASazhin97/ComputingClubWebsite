@@ -5,9 +5,9 @@ const router = express.Router();
 const verifyAdmin = auth.verifyAdmin;
 
 // GET /members
-// Returns all members
+// Returns all members except applicants
 router.get('/', (req, res, next) => {
-  Member.find({}, (err, members) => {
+  Member.find({type: {$ne: 'APPLICANT'}}, (err, members) => {
     if (err){
       return next(err);
     }
@@ -29,11 +29,17 @@ router.post('/', verifyAdmin, (req, res, next) => {
   });
 });
 
-// TODO: Do validation to ensure role is valid. Use enums from model(exclude:
-// applicants)
+// TODO: Do validation to ensure role is valid.
 // GET /members/role/:role
 // Returns all members that have the role passed by the param
 router.get('/role/:role', (req, res, next) => {
+  // Only admins can see applicants
+  const isAuthenticated = req.user ? true: false;
+  if (!isAuthenticated && req.params.role === 'APPLICANT'){
+    const err = new Error('Not authorized');
+    err.status = 401;
+    return next(err);
+  }
   Member.find({type: req.params.role}, (err, members) => {
     if (err){
       return next(err);
