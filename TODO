@@ -4,6 +4,7 @@ Todo:
   ✔ Use confirmation messages instead of redirects when admins register/login @done(19-04-16 13:10)
   ✔ Write code to create mongodb 'documents' on routes @done(19-04-16 13:11)
   ✔ Export enums for use across multiple files @done(19-04-17 00:15)
+  ☐ Move client side code(/public and /views) to a client folder
   ☐ Add more log statements to routes?
   ☐ Hide mongourl in environment variable and change password
   ☐ Fix deprecation warning for mongoose by using findOne instead of findById

@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 
 // POST /members
 // Creates one member
-router.post('/', verifyAdmin, (req, res, next) => {
+router.post('/', (req, res, next) => {
   // Create a member using the model
   const newMember = new Member(req.body.member);
   // Save the member
