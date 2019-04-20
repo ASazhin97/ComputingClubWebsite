@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 
 // POST /resources
 // Creates one resource
-router.post('/', (req, res, next) => {
+router.post('/', verifyAdmin, (req, res, next) => {
   // Create a resource using the model
   const newResource = new Resource(req.body.resource);
   // Save the resource
