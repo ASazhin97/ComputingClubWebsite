@@ -31,6 +31,10 @@ module.exports.loginAdmin = passport.authenticate('local',
 );
 
 // See: http://www.passportjs.org/docs/configure/#sessions
+// See: https://logrocket.com/blog/jwt-authentication-best-practices
+// JWT is not useful for this application since it has to be sent with every
+// request and the server has to parse it which takes up a lot of resources
+// as the # of users grow versus using sessions
 module.exports.verifyAdmin = (req, res, next) => {
   if (req.user){
     return next();
