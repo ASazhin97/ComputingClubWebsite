@@ -30,6 +30,7 @@ module.exports.loginAdmin = passport.authenticate('local',
     }
 );
 
+// See: http://www.passportjs.org/docs/configure/#sessions
 module.exports.verifyAdmin = (req, res, next) => {
   if (req.user){
     return next();
