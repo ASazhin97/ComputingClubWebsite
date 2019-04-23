@@ -65,8 +65,6 @@ module.exports.loginAdmin = (req, res, next) => {
 // as the # of users grow versus using sessions
 module.exports.verifyAdmin = (req, res, next) => {
   const token = req.cookies.token;
-  const authErr = new Error('Not authorized');
-  authErr.status = 401;
   if (token){
     jwt.verify(token, config.secretKey, (err, decoded) => {
       if (err){
@@ -75,10 +73,14 @@ module.exports.verifyAdmin = (req, res, next) => {
       if (decoded.admin){
         next();
       } else {
-        next(authErr);
+        const err = new Error('Not an admin');
+        err.status = 403;
+        next(err);
       }
     });
   } else {
-    next(authErr);
+    const err = new Error('Not authorized');
+    err.status = 401;
+    next(err);
   }
 };
