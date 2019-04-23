@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const admin = require('./admin');
 const events = require('./events');
 const members = require('./members');
@@ -12,7 +11,7 @@ router.use('/members', members);
 router.use('/resources', resources);
 
 router.get('/', (req, res) => {
-  res.send('<h1>Home Page</h1>');
+  res.sendFile(`${__dirname}/logout.html`);
 });
 
 module.exports = router;

@@ -11,6 +11,6 @@ if (!isProduction){
 }
 
 module.exports = {
-  'secretKey': process.env.SESSION_SECRET,
+  'secretKey': process.env.TOKEN_SECRET,
   'mongoURL': mongoURL,
 };

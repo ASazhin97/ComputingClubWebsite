@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-session');
 const log = require('loglevel');
 const chalk = require('chalk');
 const prefix = require('loglevel-plugin-prefix');
+const cookieParser = require('cookie-parser');
 
 const index = require('./routes/index');
 const Admin = require('./models/admin');
@@ -40,15 +40,10 @@ prefix.apply(log.getLogger('critical'), {
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({
-  secret: config.secretKey,
-  resave: false,
-  saveUninitialized: false,
-}));
 app.use(passport.initialize());
-app.use(passport.session());
 
 
 passport.use(new LocalStrategy(Admin.authenticate()));
@@ -78,8 +73,8 @@ app.use((req, res, next) => {
 
 // Error Handler
 app.use((err, req, res, next) => {
-  log.trace(err);
-  log.error(err.message);
+  // log.trace(err);
+  log.error(err);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -6,7 +6,7 @@ const router = express.Router();
 router.route('/register')
 // Sends registration page
     .get((req, res) => {
-      res.send('<h1>Admin Register GET</h1>');
+      res.sendFile(`${__dirname}/register.html`);
     })
 // Creates a new admin user
     .post((req, res, next) => {
@@ -17,15 +17,17 @@ router.route('/register')
 router.route('/login')
 // Sends login page
     .get((req, res) => {
-      res.send('<h1>Admin Login GET</h1>');
+      res.sendFile(`${__dirname}/login.html`);
     })
 // Authenticate admin user
-    .post(auth.loginAdmin);
+    .post((req, res, next) => {
+      auth.loginAdmin(req, res, next);
+    });
 
 // POST /admin/logout
 // Logout admin user
 router.post('/logout', (req, res) => {
-  req.logout();
+  res.clearCookie('token');
   res.redirect('/');
 });
 

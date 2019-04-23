@@ -6,7 +6,7 @@ const verifyAdmin = auth.verifyAdmin;
 
 // GET /events
 // Returns all events
-router.get('/', (req, res, next) => {
+router.get('/', verifyAdmin, (req, res, next) => {
   Event.find({}, (err, events) => {
     if (err){
       return next(err);
