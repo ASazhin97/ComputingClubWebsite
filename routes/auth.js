@@ -23,12 +23,14 @@ module.exports.registerAdmin = (req, res, next) => {
 };
 
 // TODO: Implement connect-flash to show success/failure messages
-module.exports.loginAdmin = passport.authenticate('local',
-    {
-      failureRedirect: '/admin/login',
-      successRedirect: '/',
-    }
-);
+module.exports.loginAdmin = (req, res, next) => {
+  passport.authenticate('local',
+      {
+        failureRedirect: '/admin/login',
+        successRedirect: '/',
+      }
+  )(req, res, next);
+};
 
 // See: http://www.passportjs.org/docs/configure/#sessions
 // See: https://logrocket.com/blog/jwt-authentication-best-practices

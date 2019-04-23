@@ -20,7 +20,9 @@ router.route('/login')
       res.send('<h1>Admin Login GET</h1>');
     })
 // Authenticate admin user
-    .post(auth.loginAdmin);
+    .post((req, res, next) => {
+      auth.loginAdmin(req, res, next);
+    });
 
 // POST /admin/logout
 // Logout admin user
