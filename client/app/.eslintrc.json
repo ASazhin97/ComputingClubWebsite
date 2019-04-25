@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "globals": {
+    "angular": true
+  },
+  "extends": [
+    "plugin:angular/johnpapa"
+  ],
+  "rules": {
+    "no-console": "off",
+    "max-len": "off",
+    "angular/file-name": "off"
+  }
+}

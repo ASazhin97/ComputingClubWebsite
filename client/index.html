@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="computingClubApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quinnipiac Computing Club</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css" />
+</head>
+
+<body>
+  <div ng-include="'/public/app/partials/header.html'"></div>
+
+  <div id="content" ng-view></div>
+
+  <div ng-include="'/public/app/partials/footer.html'"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.js"></script>
+
+  <script src="/public/app/app.js"></script>
+  <script src="/public/app/services/injectFile.js"></script>
+  <script src="/public/app/controllers/home.js"></script>
+  <script src="/public/app/controllers/events.js"></script>
+</body>
+
+</html>
