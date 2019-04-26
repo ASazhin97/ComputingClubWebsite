@@ -14,6 +14,7 @@ function InjectFileService($document){
     return element.length > 0;
   }
 
+  // TODO: remove irrelevant scripts/links. Eg: events.css on any page that isn't /events
   injectFile.set = function(type, url, id){
     if (!elementExists(id)){
       if (type === 'css'){

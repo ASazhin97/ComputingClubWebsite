@@ -8,7 +8,7 @@ angular
             templateUrl: '/public/app/views/home.html',
             resolve: {
               load: ['InjectFileService', function(injectFile){
-                return injectFile.set('css', '/public/css/home.css', 'homecss');
+                injectFile.set('css', '/public/css/home.css', 'homecss');
               }],
             },
           })
@@ -17,9 +17,10 @@ angular
             templateUrl: '/public/app/views/events.html',
             resolve: {
               load: ['InjectFileService', function(injectFile){
-                return injectFile.set('css', '/public/css/home.css', 'homecss');
+                injectFile.set('css', '/public/css/home.css', 'homecss');
+                injectFile.set('css', '/public/css/events.css', 'eventscss');
               }],
             },
           });
     });
-// TODO: handle 404 here
+// TODO: handle 404 here with .otherwise
