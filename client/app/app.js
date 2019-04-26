@@ -1,6 +1,6 @@
 /* eslint-disable angular/file-name */
 angular
-    .module('computingClubApp', ['ngRoute', 'events', 'home'])
+    .module('computingClubApp', ['ngRoute', 'home', 'events'])
     .config($routeProvider => {
       $routeProvider
           .when('/', {
@@ -8,7 +8,7 @@ angular
             templateUrl: '/public/app/views/home.html',
             resolve: {
               load: ['InjectFileService', function(injectFile){
-                return injectFile.set('css', '/public/css/home.css');
+                return injectFile.set('css', '/public/css/home.css', 'homecss');
               }],
             },
           })

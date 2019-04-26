@@ -11,8 +11,8 @@ function EventsController($http){
   // Get events
   $http.get('/events')
       .then(res => {
-        vm.events = res;
-        console.log(res);
+        vm.events = res.data;
+        console.log(res.data);
       },
       err => {
         console.log(err);
