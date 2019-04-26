@@ -2,19 +2,19 @@
   <!-- events coloumn-->
   <div class="col-lg-3 col-sm-12" style="text-align: center; margin-left:5%; margin-right: 5%;">
     <h1 style="color:white;">Upcoming Events</h1>
-    <div class="card" ng-repeat="event in events" style="margin-top: 1%;">
+    <div class="card" ng-repeat="event in eventsCtrl.events" style="margin-top: 1%;">
       <div class="card-header">{{ event.name }}</div>
-      <!-- <div class="card-body">
+      <div class="card-body">
         <p>{{ event.summary }}</p>
         <p><b>Date:</b>{{ event.date }}</p>
-      </div> -->
+      </div>
     </div>
   </div>
 
   <!-- calendar coloumn-->
-  <!-- <div class=" col-sm- 12 col-lg-7">
+  <div class=" col-sm- 12 col-lg-7">
     <iframe
       src="https://calendar.google.com/calendar/b/2/embed?height=800&amp;wkst=1&amp;bgcolor=%23000099&amp;src=5petdr5s8e6qvr9nam37e2bnqs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York"
       style="border:solid 1px #777" width="80%" height="700" frameborder="0" scrolling="no"></iframe>
-  </div> -->
+  </div>
 </div>
