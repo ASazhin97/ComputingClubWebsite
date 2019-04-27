@@ -1,6 +1,7 @@
 /* eslint-disable angular/file-name */
 angular
-    .module('computingClubApp', ['ngRoute', 'home', 'events', 'login', 'register'])
+    .module('computingClubApp',
+        ['ngRoute', 'home', 'events', 'login', 'register', 'applications'])
     .config($routeProvider => {
       $routeProvider
           .when('/', {
@@ -39,6 +40,16 @@ angular
               load: ['InjectFileService', function(injectFile){
                 injectFile.set('css', '/public/css/home.css', 'homecss');
                 injectFile.set('css', '/public/css/events.css', 'eventscss');
+              }],
+            },
+          })
+          .when('/applications', {
+            controller: 'ApplicationsController as applicationsCtrl',
+            templateUrl: '/public/app/views/applications.html',
+            resolve: {
+              load: ['InjectFileService', function(injectFile){
+                injectFile.set('css', '/public/css/home.css', 'homecss');
+                injectFile.set('css', '/public/css/applications.css', 'applicationscss');
               }],
             },
           });

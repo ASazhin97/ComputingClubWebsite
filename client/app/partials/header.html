@@ -16,14 +16,11 @@
           <a class="nav-link" href="/#!">Home<span class="sr-only"></span></a>
         </li>
         <li class="nav-item rounded">
-          <a class="nav-link" href="/#!/personnel">Personnel<span class="sr-only"></span></a>
+          <a class="nav-link" href="/#!/members">Members<span class="sr-only"></span></a>
         </li>
         <li class="nav-item rounded">
           <a class="nav-link" href="/#!/resources">Resources<span class="sr-only"></span></a>
         </li>
-        <!-- <li class="nav-item rounded">
-          <a class="nav-link" href="/experience">Experiences<span class="sr-only"></span></a>
-        </li> -->
         <li class="nav-item rounded">
           <a class="nav-link" href="/#!/events">Events<span class="sr-only"></span></a>
         </li>
@@ -38,6 +35,11 @@
       <a href="#" ng-if='isAuthenticated'>
         <div>
           <button class="btn btn-secondary">Hello {{username}}</button>
+        </div>
+      </a>
+      <a href="/#!/applications" ng-if='isAuthenticated'>
+        <div>
+          <button class="btn btn-secondary">Review Applications</button>
         </div>
       </a>
       <a href="#" ng-if='isAuthenticated' ng-click='logout()'>

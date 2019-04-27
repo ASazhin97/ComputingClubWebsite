@@ -15,8 +15,7 @@ function EventsController($http){
       },
       err => {
         console.log(err);
-      }
-      );
+      });
 
   // Responsible for adding events to the database
   vm.addEvent = function(event){

@@ -11,6 +11,8 @@ Todo:
   ✔ Fix linting errors for angularjs files @done(19-04-27 03:08)
   ✔ Add route to send user authentication status @done(19-04-27 14:09)
   ✔ Add method to AuthenticationService to check if user is authenticated or not when page is loaded/refreshed @done(19-04-27 14:09)
+  ☐ Non-admins shouldn't be able to access /applications on client.
+  ☐ Remove console.logs on client
   ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page
   ☐ Implement form validation on the forms
   ☐ Add more log statements to routes?

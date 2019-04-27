@@ -1,0 +1,59 @@
+<div class="container-fluid text-center">
+  <h2 style="color:white; margin-top:2%;">Submitted Membership Applications</h2>
+</div>
+
+<div ng-repeat="applicant in applicationsCtrl.applications" class="card">
+  <div class="card-title">
+    <p> <b>{{ applicant.firstName }} {{ applicant.lastName }}</b> </p>
+  </div>
+  <div class="card-body">
+    <p> <b>Major:</b> {{ applicant.major }} </p>
+    <p> <b>Year:</b> {{ applicant.year }} </p>
+    <p> <b>Summary:</b> {{ applicant.summary }} </p>
+    <button class="btn btn-success" ng-click="applicationsCtrl.accept(applicant)" data-toggle="modal"
+      data-target="#acceptance-modal">Accept</button>
+    <button class="btn btn-danger" ng-click="applicationsCtrl.reject(applicant)" data-toggle="modal"
+      data-target="#rejection-modal">Decline</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="acceptance-modal" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-body" style="margin: 15px;">
+        <div class="container-fluid text-center">
+          <p>Applicant will be sent an email notifying them of their acceptance!</p>
+          <label for="messageInput">Want to send them a personalized message?</label>
+          <textarea class="form-control" rows="3" id="messageInput"
+            placeholder="Can't wait to see you at the next club meeting!"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-down" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- End Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="rejection-modal" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-body" style="margin: 15px;">
+        <div class="container-fluid text-center">
+          <p>Applicant will be sent an email notifying them of their rejection...</p>
+          <label for="messageInput">Why did you reject their application?</label>
+          <textarea class="form-control" rows="3" id="messageInput" placeholder=". . ."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-down" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- End Modal -->
+
+<div style="clear: left"></div>
