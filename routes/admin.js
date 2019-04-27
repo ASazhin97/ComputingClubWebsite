@@ -2,23 +2,15 @@ const express = require('express');
 const auth = require('./auth');
 const router = express.Router();
 
-// GET/POST /admin/register
+// POST /admin/register
 router.route('/register')
-// Sends registration page
-    .get((req, res) => {
-      res.send('<h1>Admin Register GET</h1>');
-    })
 // Creates a new admin user
     .post((req, res, next) => {
       auth.registerAdmin(req, res, next);
     });
 
-// GET/POST /admin/login
+// POST /admin/login
 router.route('/login')
-// Sends login page
-    .get((req, res) => {
-      res.send('<h1>Admin Login GET</h1>');
-    })
 // Authenticate admin user
     .post((req, res, next) => {
       auth.loginAdmin(req, res, next);
@@ -28,7 +20,7 @@ router.route('/login')
 // Logout admin user
 router.post('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.json('Logout Successful');
 });
 
 module.exports = router;
