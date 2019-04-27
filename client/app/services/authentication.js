@@ -4,29 +4,52 @@ angular
     .module('computingClubApp')
     .factory('AuthenticationService', ['$rootScope', '$http', '$location', AuthenticationService])
     .run(['AuthenticationService', function(authenticatation){
-      authenticatation.setAuth(true);
+    // On page load/reload call setAuth in AuthenticationService
+      authenticatation.setAuth();
     }]);
 
 function AuthenticationService($rootScope, $http, $location){
-  // TODO: maybe find a better way to check if someone is authenticated
-  // Maybe broadcast an event whenever a 401 reponse is sent and
-  // used a boolean for isAuthenticated instead of a function that
-  // returns a boolean
-
   // Object that stores the methods for this service
   const authenticatation = {};
 
-  // Using rootScope to prevent loading the module for every controller that needs to know if a admin is simply logged in
+  // Using rootScope to prevent loading the module for every controller that needs to know if an admin is simply logged in
   // $rootScope.isAuthenticated = true;
-  authenticatation.setAuth = function(boolean){
+  authenticatation.setAuthStatus = function(boolean){
     $rootScope.isAuthenticated = boolean;
+  };
+
+  // Set username
+  authenticatation.setUsername = function(username){
+    $rootScope.username = username;
+  };
+
+  // Clear username
+  authenticatation.clearUsername = function(){
+    $rootScope.username = '';
+  };
+
+  // Get authentication details from server and set them
+  authenticatation.setAuth = function(){
+    // This is kinda lazy
+    $rootScope.logout = authenticatation.logout;
+
+    $http.get('/admin/authenticated')
+        .then(res => {
+          authenticatation.setAuthStatus(res.data.isAuthenticated);
+          authenticatation.setUsername(res.data.username);
+        },
+        err => {
+          authenticatation.setAuthStatus(false);
+          authenticatation.clearUsername();
+        });
   };
 
   // Responsible for logging in admin users
   authenticatation.login = function(credentials){
     $http.post('/admin/login', credentials)
         .then(res => {
-          this.setAuth(true);
+          authenticatation.setAuthStatus(true);
+          authenticatation.setUsername(res.data.username);
           $location.path('/');
         },
         err => {
@@ -38,7 +61,8 @@ function AuthenticationService($rootScope, $http, $location){
   authenticatation.register = function(credentials){
     $http.post('/admin/register', credentials)
         .then(res => {
-          this.setAuth(true);
+          authenticatation.setAuthStatus(true);
+          authenticatation.setUsername(res.data.username);
           $location.path('/');
         },
         err => {
@@ -50,8 +74,9 @@ function AuthenticationService($rootScope, $http, $location){
   authenticatation.logout = function(){
     $http.post('/admin/logout')
         .then(res => {
+          authenticatation.setAuthStatus(false);
+          authenticatation.clearUsername();
           $location.path('/');
-          this.setAuth(false);
         },
         err => {
           $location.path('/');
