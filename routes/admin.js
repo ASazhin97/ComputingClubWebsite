@@ -23,4 +23,19 @@ router.post('/logout', (req, res) => {
   res.json('Logout Successful');
 });
 
+// GET /admin/authenticated
+// Get authentication status
+router.get('/authenticated', (req, res) => {
+  if (req.user){
+    return res.json({
+      username: req.user.username,
+      isAuthenticated: true,
+    });
+  }
+  return res.json({
+    username: '',
+    isAuthenticated: false,
+  });
+});
+
 module.exports = router;
