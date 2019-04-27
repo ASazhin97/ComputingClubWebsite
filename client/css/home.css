@@ -8,7 +8,7 @@ body {
 
 .navbar {
   height: 12%;
-  background-image: url("../images/Q_Plaid.jpg");
+  background-image: url("/public/images/Q_Plaid.jpg");
 }
 
 .nav-link {
@@ -40,14 +40,14 @@ body {
   margin-right: 1%;
   float: right;
   align-self: flex-start;
+  z-index: 999;
 }
 
-.btn {
+.action-buttons .btn {
   color: white;
   background-color: midnightblue;
   width: 100%;
   margin: 5%;
-
 }
 
 .row-one {
