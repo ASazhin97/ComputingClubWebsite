@@ -8,6 +8,8 @@ Todo:
   ✔ Rename home.html to index.html @done(19-04-25 22:54)
   ✔ Move script tags to the end of body tag @done(19-04-25 22:53)
   ✔ Ensure that everyone uses same formatting style @done(19-04-25 22:54)
+  ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service
+  ☐ Implement form validation on the forms
   ☐ Add more log statements to routes?
   ☐ Hide mongourl in environment variable and change password
   ☐ Fix deprecation warning for mongoose by using findOne instead of findById

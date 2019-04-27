@@ -1,0 +1,17 @@
+.register-label {
+  font-size: 150%;
+  color: white;
+}
+
+.register-col {
+  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.register-btn {
+  margin: 0%;
+  width: 20%;
+  background-color: gold;
+
+}

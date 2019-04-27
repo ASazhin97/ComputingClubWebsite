@@ -1,18 +1,18 @@
 <div class="row row-one">
   <!-- Events form -->
   <div class="col-lg-3 col-sm-12" style="text-align: center; margin-left:5%; margin-right: 5%;">
-    <form class="form-vertical" name="EventForm" ng-submit="addEvent(new_event)">
+    <form class="form-vertical" name="EventForm" ng-submit="eventsCtrl.addEvent(event)" ng-if="isAuthenticated">
       <div class="form-group">
         <label class="new-event-label">Event Name:</label>
-        <input type="text" class="form-control" placeholder="Name" ng-model="new_event.Title" required>
-      </div>
-      <div class="form-group">
-        <label class="new-event-label">Description:</label>
-        <textarea class="form-control" placeholder="Description" ng-model="new_event.Description"></textarea>
+        <input type="text" class="form-control" placeholder="Name" ng-model="event.name" required>
       </div>
       <div class="form-group">
         <label class="new-event-label">Date:</label>
-        <input type="text" class="form-control" placeholder="mm/dd/yyyy" ng-model="new_event.Date" required>
+        <input type="datetime-local" class="form-control" ng-model="event.date" required>
+      </div>
+      <div class="form-group">
+        <label class="new-event-label">Description:</label>
+        <textarea class="form-control" placeholder="Description" ng-model="event.description" required></textarea>
       </div>
       <button type="submit" class="btn btn-secondary btn-down">Add Event</button>
     </form>
