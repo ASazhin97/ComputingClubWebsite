@@ -35,12 +35,22 @@
           <button class="btn btn-secondary">Apply Now</button>
         </div>
       </a>
-      <a href="/#!/login">
+      <a href="#" ng-if='isAuthenticated'>
+        <div>
+          <button class="btn btn-secondary">Hello {{username}}</button>
+        </div>
+      </a>
+      <a href="#" ng-if='isAuthenticated' ng-click='logout()'>
+        <div>
+          <button class="btn btn-secondary">Logout</button>
+        </div>
+      </a>
+      <a href="/#!/login" ng-if='!isAuthenticated'>
         <div>
           <button class="btn btn-secondary">Admin Login</button>
         </div>
       </a>
-      <a href="/#!/register">
+      <a href="/#!/register" ng-if='!isAuthenticated'>
         <div>
           <button class="btn btn-secondary">Admin Register</button>
         </div>
