@@ -8,13 +8,15 @@ Todo:
   ✔ Rename home.html to index.html @done(19-04-25 22:54)
   ✔ Move script tags to the end of body tag @done(19-04-25 22:53)
   ✔ Ensure that everyone uses same formatting style @done(19-04-25 22:54)
-  ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service
+  ✔ Fix linting errors for angularjs files @done(19-04-27 03:08)
+  ✔ Add route to send user authentication status @done(19-04-27 14:09)
+  ✔ Add method to AuthenticationService to check if user is authenticated or not when page is loaded/refreshed @done(19-04-27 14:09)
+  ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page
   ☐ Implement form validation on the forms
   ☐ Add more log statements to routes?
   ☐ Hide mongourl in environment variable and change password
   ☐ Fix deprecation warning for mongoose by using findOne instead of findById
   ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts
-  ☐ Fix linting errors for angularjs files
   ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
   ☐ Delete excess blank lines
   ☐ Remove horizantal scrolling on pages(eg home.html)

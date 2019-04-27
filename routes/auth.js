@@ -7,22 +7,23 @@ module.exports.registerAdmin = (req, res, next) => {
   Admin.register(new Admin({
     username: req.body.username,
   }),
-  req.body.password, ((err, account) => {
+  req.body.password, ((err, user) => {
     if (err){
       return next(err);
     }
     log.info('User registered');
-    req.login(account, err => {
+    req.login(user, err => {
       if (err){
         return next(err);
       }
       log.info('User was logged in');
-      res.json('Registration successful');
+      return res.json({
+        username: user.username,
+      });
     });
   }));
 };
 
-// TODO: Implement connect-flash to show success/failure messages
 module.exports.loginAdmin = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err){
@@ -37,7 +38,9 @@ module.exports.loginAdmin = (req, res, next) => {
       if (err){
         return next(err);
       }
-      return res.json('Login Successful');
+      return res.json({
+        username: user.username,
+      });
     });
   })(req, res, next);
 };
