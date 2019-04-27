@@ -9,8 +9,4 @@ function LoginController($http, authentication){
   vm.submitForm = function(admin){
     authentication.login(admin);
   };
-
-  vm.logout = function(){
-    authentication.logout();
-  };
 }
