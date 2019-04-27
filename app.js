@@ -78,7 +78,7 @@ app.use((req, res, next) => {
 
 // Error Handler
 app.use((err, req, res, next) => {
-  log.trace(err);
+  // log.trace(err);
   log.error(err.message);
   // set locals, only providing error in development
   res.locals.message = err.message;
