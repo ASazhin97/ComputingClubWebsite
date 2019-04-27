@@ -7,29 +7,42 @@ module.exports.registerAdmin = (req, res, next) => {
   Admin.register(new Admin({
     username: req.body.username,
   }),
-  req.body.password, ((err, account) => {
+  req.body.password, ((err, user) => {
     if (err){
       return next(err);
     }
     log.info('User registered');
-    req.login(account, err => {
+    req.login(user, err => {
       if (err){
         return next(err);
       }
       log.info('User was logged in');
-      res.json('Registration successful');
+      return res.json({
+        username: user.username,
+      });
     });
   }));
 };
 
-// TODO: Implement connect-flash to show success/failure messages
 module.exports.loginAdmin = (req, res, next) => {
-  passport.authenticate('local',
-      {
-        failureRedirect: '/admin/login',
-        successRedirect: '/',
+  passport.authenticate('local', (err, user, info) => {
+    if (err){
+      return next(err);
+    }
+    if (!user){
+      const err = new Error('Login Failed');
+      err.status = 401;
+      return next(err);
+    }
+    req.login(user, err => {
+      if (err){
+        return next(err);
       }
-  )(req, res, next);
+      return res.json({
+        username: user.username,
+      });
+    });
+  })(req, res, next);
 };
 
 // See: http://www.passportjs.org/docs/configure/#sessions

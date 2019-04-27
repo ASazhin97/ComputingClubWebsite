@@ -22,7 +22,7 @@ const EventSchema = Schema({
   },
   time: {
     type: String,
-    required: true,
+    required: false,
     default: () => {
       // Generate a random time between 9am and 10pm in military time
       // Will be removed and time will be parsed from date client side
@@ -31,7 +31,7 @@ const EventSchema = Schema({
       return `${hour.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
     },
   },
-  summary: {
+  description: {
     type: String,
     required: true,
     fake: {

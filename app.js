@@ -15,7 +15,7 @@ const Admin = require('./models/admin');
 const config = require('./config');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const colors = {
   TRACE: chalk.magenta,
@@ -38,7 +38,7 @@ prefix.apply(log.getLogger('critical'), {
   },
 });
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'client')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -78,7 +78,7 @@ app.use((req, res, next) => {
 
 // Error Handler
 app.use((err, req, res, next) => {
-  log.trace(err);
+  // log.trace(err);
   log.error(err.message);
   // set locals, only providing error in development
   res.locals.message = err.message;

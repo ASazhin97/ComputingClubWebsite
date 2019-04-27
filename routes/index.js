@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 
 const admin = require('./admin');
@@ -12,7 +13,7 @@ router.use('/members', members);
 router.use('/resources', resources);
 
 router.get('/', (req, res) => {
-  res.send('<h1>Home Page</h1>');
+  res.sendFile(path.resolve('./client/index.html'));
 });
 
 module.exports = router;

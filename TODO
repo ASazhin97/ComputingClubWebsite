@@ -4,16 +4,23 @@ Todo:
   ✔ Use confirmation messages instead of redirects when admins register/login @done(19-04-16 13:10)
   ✔ Write code to create mongodb 'documents' on routes @done(19-04-16 13:11)
   ✔ Export enums for use across multiple files @done(19-04-17 00:15)
-  ☐ Move client side code(/public and /views) to a client folder
+  ✔ Move client side code(/public and /views) to a client folder @done(19-04-25 22:53)
+  ✔ Rename home.html to index.html @done(19-04-25 22:54)
+  ✔ Move script tags to the end of body tag @done(19-04-25 22:53)
+  ✔ Ensure that everyone uses same formatting style @done(19-04-25 22:54)
+  ✔ Fix linting errors for angularjs files @done(19-04-27 03:08)
+  ✔ Add route to send user authentication status @done(19-04-27 14:09)
+  ✔ Add method to AuthenticationService to check if user is authenticated or not when page is loaded/refreshed @done(19-04-27 14:09)
+  ☐ Non-admins shouldn't be able to access /applications on client.
+  ☐ Remove console.logs on client
+  ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page
+  ☐ Implement form validation on the forms
   ☐ Add more log statements to routes?
   ☐ Hide mongourl in environment variable and change password
   ☐ Fix deprecation warning for mongoose by using findOne instead of findById
   ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts
-  ☐ Fix linting errors for angularjs files
-  ☐ Move script tags to the end of body tag
   ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
-  ☐ Ensure that everyone uses same formatting style
   ☐ Delete excess blank lines
   ☐ Remove horizantal scrolling on pages(eg home.html)
-  ☐ Rename home.html to index.html
   ☐ Fix "Uncaught SyntaxError: Unexpected token export" on all pages
+  ☐ Navbar items disappear when the window's width is not large enough
