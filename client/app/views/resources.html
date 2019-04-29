@@ -1,0 +1,185 @@
+<div class="row row-one" ng-if="isAuthenticated">
+  <div class="col-lg-3 col-sm-12"></div>
+  <div class="col-sm-12 col-lg-8">
+    <div class="myContainer">
+      <form
+        class="col-md-8"
+        id="addition"
+        ng-submit="resourceCtrl.addResource(resource)"
+      >
+        <h3 style="text-align: center;">Add New Resource</h3>
+
+        <div class="form-row">
+          <input
+            type="text"
+            placeholder="Title"
+            ng-model="resource.title"
+            style="width:50%"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <input
+            type="text"
+            placeholder="Category"
+            ng-model="resource.category"
+            style="width:50%"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <input
+            type="text"
+            placeholder="YYYY/MM/DD"
+            ng-model="resource.date"
+            style="width:50%"
+            pattern="^\d{4}[\-\/\s]?((((0[13578])|(1[02]))[\-\/\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\-\/\s]?(([0-2][0-9])|(30)))|(02[\-\/\s]?[0-2][0-9]))$"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <input
+            type="text"
+            placeholder="Link"
+            ng-model="resource.link"
+            style="width:50%"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <textarea
+            ng-model="resource.summary"
+            placeholder="Summary..."
+            rows="4"
+            style="width:100%"
+            maxlength="200"
+            minlength="10"
+            required
+          ></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn btn-down">Add Resource</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row row-two">
+  <!-- filters coloumn-->
+  <div class="col-lg-3 col-sm-12">
+    <div class="card">
+      <div class="card-header">Filters</div>
+      <div class="card-body">
+        <div class="filter-box">
+          <div class="form-check">
+            <div class="form-row">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="dropdownCheck1"
+              />
+              <label
+                contenteditable="true"
+                class="form-check-label"
+                for="dropdownCheck1"
+              >
+                Git
+              </label>
+            </div>
+            <div class="form-row">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="dropdownCheck2"
+              />
+              <label
+                contenteditable="true"
+                class="form-check-label"
+                for="dropdownCheck2"
+              >
+                Java
+              </label>
+            </div>
+            <div class="form-row">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="dropdownCheck3"
+              />
+              <label
+                contenteditable="true"
+                class="form-check-label"
+                for="dropdownCheck3"
+              >
+                Scala
+              </label>
+            </div>
+            <div class="form-row">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="dropdownCheck4"
+              />
+              <label
+                contenteditable="true"
+                class="form-check-label"
+                for="dropdownCheck4"
+              >
+                Android
+              </label>
+            </div>
+            <div class="form-row">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="dropdownCheck4"
+              />
+              <label
+                contenteditable="true"
+                class="form-check-label"
+                for="dropdownCheck4"
+              >
+                HTML
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- resources coloumn-->
+  <div class="col-sm-12 col-lg-8">
+    <!-- Display Article -->
+    <!-- filter:consoleFilter | this should be used to filter through articles using consoleFilter function -->
+    <div
+      ng-repeat="resource in resourceCtrl.resources | filter:searchFor |  orderBy: '-date'"
+      class="panel panel-default"
+    >
+      <div class="panel-heading">
+        <button
+          type="button"
+          id="close"
+          class="close"
+          style="color: red;"
+          ng-click="removeResource(article)"
+        >
+          &times;
+        </button>
+        <b contenteditable="true">{{ resource.title }}</b>
+      </div>
+      <div class="panel-body" contenteditable="true">
+        {{ resource.summary }}
+      </div>
+      <div class="panel-footer">
+        <p style="margin:5px;">Published: {{ resource.date }}</p>
+        <p style="margin:10px;">
+          Link: <span contenteditable="true">{{ resource.link }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div style="clear: left"></div>
+  </div>
+</div>
