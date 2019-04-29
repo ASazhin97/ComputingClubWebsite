@@ -171,19 +171,20 @@
           id="close"
           class="close"
           style="color: red;"
-          ng-click="removeResource(article)"
+          ng-click="resourceCtrl.deleteResource(resource)"
+          ng-if="isAuthenticated"
         >
           &times;
         </button>
-        <b contenteditable="true">{{ resource.title }}</b>
+        <b>{{ resource.title }}</b>
       </div>
-      <div class="panel-body" contenteditable="true">
+      <div class="panel-body">
         {{ resource.summary }}
       </div>
       <div class="panel-footer">
         <p style="margin:10px;">
           Link:
-          <span contenteditable="true"
+          <span
             ><a>{{ resource.link }}</a></span
           >
         </p>
