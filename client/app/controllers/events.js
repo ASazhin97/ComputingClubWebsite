@@ -40,7 +40,7 @@ function EventsController($http){
     );
   };
 
-  // Responsible for deleting an event from the database
+  //   // Responsible for deleting an event from the database
   vm.deleteEvent = function(event){
     $http.delete(`/events/${event._id}`).then(
         res => {
