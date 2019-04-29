@@ -39,5 +39,13 @@ function ResourceController($http){
 
   vm.deleteResource = function(resource){
     // TODO needs to delete a single file
+    $http.delete(`/resources/${resource._id} `).then(
+        res => {
+          getResources();
+        },
+        err => {
+          console.log(err);
+        }
+    );
   };
 }
