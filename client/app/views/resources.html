@@ -101,75 +101,55 @@
       <div class="card-body">
         <div class="filter-box">
           <div class="form-check">
-            <div class="form-row">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck1"
-              />
+            <div class="radio">
               <label
-                contenteditable="true"
-                class="form-check-label"
-                for="dropdownCheck1"
+                ><input
+                  type="radio"
+                  name="optradio2"
+                  value="git"
+                  ng-model="resourceCtrl.currentCategory"
+                />GitHub</label
               >
-                Git
-              </label>
             </div>
-            <div class="form-row">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck2"
-              />
+            <div class="radio">
               <label
-                contenteditable="true"
-                class="form-check-label"
-                for="dropdownCheck2"
+                ><input
+                  type="radio"
+                  name="optradio2"
+                  value="java"
+                  ng-model="resourceCtrl.currentCategory"
+                />Java</label
               >
-                Java
-              </label>
             </div>
-            <div class="form-row">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck3"
-              />
+            <div class="radio disabled">
               <label
-                contenteditable="true"
-                class="form-check-label"
-                for="dropdownCheck3"
+                ><input
+                  type="radio"
+                  name="optradio2"
+                  value="scala"
+                  ng-model="resourceCtrl.currentCategory"
+                />Scala</label
               >
-                Scala
-              </label>
             </div>
-            <div class="form-row">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck4"
-              />
+            <div class="radio disabled">
               <label
-                contenteditable="true"
-                class="form-check-label"
-                for="dropdownCheck4"
+                ><input
+                  type="radio"
+                  name="optradio2"
+                  value="android"
+                  ng-model="resourceCtrl.currentCategory"
+                />Android</label
               >
-                Android
-              </label>
             </div>
-            <div class="form-row">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck4"
-              />
+            <div class="radio disabled">
               <label
-                contenteditable="true"
-                class="form-check-label"
-                for="dropdownCheck4"
+                ><input
+                  type="radio"
+                  name="optradio2"
+                  value="html"
+                  ng-model="resourceCtrl.currentCategory"
+                />HTML</label
               >
-                HTML
-              </label>
             </div>
           </div>
         </div>
@@ -182,7 +162,7 @@
     <!-- Display Article -->
     <!-- filter:consoleFilter | this should be used to filter through articles using consoleFilter function -->
     <div
-      ng-repeat="resource in resourceCtrl.resources | filter:searchFor |  orderBy: '-date'"
+      ng-repeat="resource in resourceCtrl.resources | filter:resourceCtrl.currentCategory"
       class="panel panel-default"
     >
       <div class="panel-heading">
