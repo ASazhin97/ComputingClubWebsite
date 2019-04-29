@@ -37,4 +37,8 @@ function ResourceController($http){
         }
     );
   };
+
+  vm.deleteResource = function(resource){
+    // TODO needs to delete a single file
+  };
 }
