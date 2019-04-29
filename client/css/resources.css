@@ -7,6 +7,16 @@
   padding-right: 20%;
 }
 
+.radio-button {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.btn-down {
+  color: white;
+  background-color: midnightblue;
+}
+
 .panel {
   margin: 2%;
   padding: 10px;

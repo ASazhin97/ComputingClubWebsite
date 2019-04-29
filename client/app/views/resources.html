@@ -19,23 +19,51 @@
           />
         </div>
         <div class="form-row">
-          <input
-            type="text"
-            placeholder="Category"
-            ng-model="resource.category"
-            style="width:50%"
-            required
-          />
-        </div>
-        <div class="form-row">
-          <input
-            type="text"
-            placeholder="YYYY/MM/DD"
-            ng-model="resource.date"
-            style="width:50%"
-            pattern="^\d{4}[\-\/\s]?((((0[13578])|(1[02]))[\-\/\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\-\/\s]?(([0-2][0-9])|(30)))|(02[\-\/\s]?[0-2][0-9]))$"
-            required
-          />
+          <label class="radio-inline"
+            ><input
+              class="radio-button"
+              type="radio"
+              name="optradio"
+              value="git"
+              ng-model="resource.category"
+            />GitHub</label
+          >
+          <label class="radio-inline"
+            ><input
+              class="radio-button"
+              type="radio"
+              name="optradio"
+              value="java"
+              ng-model="resource.category"
+            />Java</label
+          >
+          <label class="radio-inline"
+            ><input
+              class="radio-button"
+              type="radio"
+              name="optradio"
+              value="scala"
+              ng-model="resource.category"
+            />Scala</label
+          >
+          <label class="radio-inline"
+            ><input
+              class="radio-button"
+              type="radio"
+              name="optradio"
+              value="android"
+              ng-model="resource.category"
+            />Android</label
+          >
+          <label class="radio-inline"
+            ><input
+              class="radio-button"
+              type="radio"
+              name="optradio"
+              value="html"
+              ng-model="resource.category"
+            />HTML</label
+          >
         </div>
         <div class="form-row">
           <input
@@ -173,9 +201,11 @@
         {{ resource.summary }}
       </div>
       <div class="panel-footer">
-        <p style="margin:5px;">Published: {{ resource.date }}</p>
         <p style="margin:10px;">
-          Link: <span contenteditable="true">{{ resource.link }}</span>
+          Link:
+          <span contenteditable="true"
+            ><a>{{ resource.link }}</a></span
+          >
         </p>
       </div>
     </div>

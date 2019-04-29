@@ -31,7 +31,7 @@ function EventsController($http){
     $http.post('/events', body).then(
         res => {
         // TODO: Display success message
-          console.log('Putt success');
+          console.log('Put success');
           getEvents();
         },
         err => {
