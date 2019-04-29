@@ -25,6 +25,7 @@
         <p>{{ event.summary }}</p>
         <p><b>Date:</b>{{ event.date }}</p>
       </div>
+      <button class="btn btn-danger" ng-click="eventsCtrl.deleteEvent(event)" ng-if="isAuthenticated">Delete</button>
     </div>
 
   </div>

@@ -20,6 +20,7 @@ function EventsController($http){
     );
   }
 
+  // Call on page load
   getEvents();
 
   // Responsible for adding events to the database
@@ -31,7 +32,19 @@ function EventsController($http){
     $http.post('/events', body).then(
         res => {
         // TODO: Display success message
-          console.log('Putt success');
+          getEvents();
+        },
+        err => {
+          console.log(err);
+        }
+    );
+  };
+
+  // Responsible for deleting an event from the database
+  vm.deleteEvent = function(event){
+    $http.delete(`/events/${event._id}`).then(
+        res => {
+        // TODO: Display success message
           getEvents();
         },
         err => {
