@@ -2,6 +2,7 @@
 angular
     .module('computingClubApp', [
       'ngRoute',
+      'partials',
       'home',
       'events',
       'login',
