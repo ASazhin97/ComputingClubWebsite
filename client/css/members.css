@@ -1,0 +1,61 @@
+.title-one {
+  color: white;
+}
+
+.card {
+  /* display: inline-block; */
+  float: left;
+  width: 300px;
+  margin: 1%;
+}
+
+
+.card-img-top {
+  width: 70%;
+}
+
+.row-one {
+  margin-top: 2%;
+}
+
+.col-lg-12 {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.btn-down {
+  color: white;
+  background-color: midnightblue;
+}
+
+.myContainer {
+}
+
+.card-header {
+  font-size: large;
+}
+
+.card {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.form-row {
+  width:200%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  width:100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#addition {
+  border: white;
+  background-color: gold;
+  padding: 25px;
+}
