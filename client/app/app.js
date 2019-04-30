@@ -80,6 +80,23 @@ angular
               ],
             },
           })
+          .when('/members', {
+            controller: 'MembersController as membersCtrl',
+            templateUrl: '/public/app/views/members.html',
+            resolve: {
+              load: [
+                'InjectFileService',
+                function(injectFile){
+                  injectFile.set('css', '/public/css/home.css', 'homecss');
+                  injectFile.set(
+                      'css',
+                      '/public/css/members.css',
+                      'memberscss'
+                  );
+                },
+              ],
+            },
+          })
           .when('/resources', {
             controller: 'ResourceController as resourceCtrl',
             templateUrl: '/public/app/views/resources.html',
