@@ -49,6 +49,20 @@ angular
               ],
             },
           })
+          .when('/apply', {
+            controller: 'ApplyController as applyCtrl',
+            templateUrl: '/public/app/views/apply.html',
+            resolve: {
+              load: [
+                'InjectFileService',
+                function(injectFile){
+                  injectFile.set('css', '/public/css/home.css', 'homecss');
+                  injectFile.set('css', '/public/css/apply.css', 'applycss');
+                  // injectFile.set('css', '/public/css/apply.css', 'applycss');
+                },
+              ],
+            },
+          })
           .when('/events', {
             controller: 'EventsController as eventsCtrl',
             templateUrl: '/public/app/views/events.html',
