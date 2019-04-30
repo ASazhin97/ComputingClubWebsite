@@ -1,0 +1,19 @@
+.sub-buttons {
+  align-self: flex-start;
+  z-index: 999;
+}
+
+.sub-buttons .btn {
+  margin-top: 7%;
+  color: white;
+  background-color: midnightblue;
+  width: 50%;
+}
+
+#defaultVals {
+  display: none;
+}
+
+label {
+  color: white;
+}
