@@ -19,9 +19,3 @@ module.exports.roles = {
   PROFESSOR: 'professor',
   APPLICANT: 'applicant',
 };
-
-module.exports.status = {
-  PENDING: 'pending',
-  APPROVED: 'approved',
-  DECLINED: 'declined',
-};

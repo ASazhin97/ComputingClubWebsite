@@ -40,13 +40,9 @@ const MemberSchema = Schema({
     required: true,
     default: () => {
       const roles = Object.values(enums.roles);
-      const randIndex = Math.floor(Math.random()*roles.length);
+      const randIndex = Math.floor(Math.random() * roles.length);
       return roles[randIndex];
     },
-  },
-  status: {
-    type: String,
-    enum: Object.values(enums.status),
   },
   imagePath: String,
 });
