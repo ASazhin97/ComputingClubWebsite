@@ -36,7 +36,7 @@ function MembersController($http){
 
   // get members from database
   function getMembers(){
-    $http.get('/members/role/officer').then(
+    $http.get('/members/role/member').then(
         res => {
           vm.members = res.data;
         },
@@ -51,6 +51,9 @@ function MembersController($http){
     getProfessors();
     getMembers();
   }
+
+  // Call on page load
+  getAllMembers();
 
   // Responsible for adding member to the database
   vm.addMember = function(member){

@@ -9,6 +9,7 @@ angular
       'register',
       'applications',
       'resources',
+      'members',
     ])
     .config($routeProvider => {
       $routeProvider
