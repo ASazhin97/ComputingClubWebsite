@@ -1,6 +1,17 @@
 const express = require('express');
 const multer = require('multer');
-const upload = multer({dest: '../client/images'});
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, '../client/images');
+  },
+  filename: function(req, file, cb){
+    cb(null, `${req.body.member._id}`);
+  },
+});
+
+const upload = multer({storage: storage});
+
 const auth = require('./auth');
 const Member = require('../models/member');
 const enums = require('../enums');
