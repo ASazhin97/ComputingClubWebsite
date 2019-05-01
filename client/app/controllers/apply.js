@@ -6,8 +6,9 @@ function ApplyController($http){
   console.log('apply page');
   const vm = this;
 
-  // adding
+  // Create an applicant
   vm.addApplicant = function(member){
+    member.role = 'applicant';
     const body = {};
     body.member = member;
 

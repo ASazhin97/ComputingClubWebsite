@@ -10,6 +10,7 @@ angular
       'applications',
       'resources',
       'members',
+      'apply',
     ])
     .config($routeProvider => {
       $routeProvider
@@ -60,7 +61,6 @@ angular
                 function(injectFile){
                   injectFile.set('css', '/public/css/home.css', 'homecss');
                   injectFile.set('css', '/public/css/apply.css', 'applycss');
-                  // injectFile.set('css', '/public/css/apply.css', 'applycss');
                 },
               ],
             },
