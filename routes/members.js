@@ -1,4 +1,6 @@
 const express = require('express');
+const multer = require('multer');
+const upload = multer({dest: '../client/images'});
 const auth = require('./auth');
 const Member = require('../models/member');
 const enums = require('../enums');
@@ -18,7 +20,7 @@ router.get('/', (req, res, next) => {
 
 // POST /members
 // Creates one member
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('avatar'), (req, res, next) => {
   // Create a member using the model
   const newMember = new Member(req.body.member);
   // Save the member
@@ -35,7 +37,7 @@ router.post('/', (req, res, next) => {
 // Returns all members that have the role passed by the param
 router.get('/role/:role', (req, res, next) => {
   // Only admins can see applicants
-  const isAuthenticated = req.user ? true: false;
+  const isAuthenticated = req.user ? true : false;
   if (!isAuthenticated && req.params.role === enums.roles.APPLICANT){
     const err = new Error('Not authorized');
     err.status = 401;

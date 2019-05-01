@@ -19,6 +19,7 @@ function ResourceController($http){
     );
   }
 
+  // Call on page load
   getResources();
 
   // Responsible for adding resources to the database
