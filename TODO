@@ -11,7 +11,9 @@ Todo:
   ✔ Fix linting errors for angularjs files @done(19-04-27 03:08)
   ✔ Add route to send user authentication status @done(19-04-27 14:09)
   ✔ Add method to AuthenticationService to check if user is authenticated or not when page is loaded/refreshed @done(19-04-27 14:09)
-  ☐ Non-admins shouldn't be able to access /applications on client.
+  ✔ Non-admins shouldn't be able to access /applications on client. @done(19-04-30 22:35)
+  ✔ Fix "Uncaught SyntaxError: Unexpected token export" on all pages @done(19-04-30 22:35)
+  ☐ Fix css on pages
   ☐ Remove console.logs on client
   ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page
   ☐ Implement form validation on the forms
@@ -22,5 +24,4 @@ Todo:
   ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
   ☐ Delete excess blank lines
   ☐ Remove horizantal scrolling on pages(eg home.html)
-  ☐ Fix "Uncaught SyntaxError: Unexpected token export" on all pages
   ☐ Navbar items disappear when the window's width is not large enough

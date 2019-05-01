@@ -26,7 +26,11 @@ function ApplicationsController($http){
     // Change role to member and remove from view
     removeFromView(applicant);
 
-    /* $http.put(`/members/${applicant._id}`).then(
+    applicant.role = 'member';
+    const body = {};
+    body.member = applicant;
+
+    $http.put(`/members/${applicant._id}`, body).then(
         res => {
         // TODO: Display success message
           getApplications();
@@ -34,11 +38,12 @@ function ApplicationsController($http){
         err => {
           console.log(err);
         }
-    ); */
+    );
   };
 
   // Delete from db and remove from view
   vm.reject = function(applicant){
+    removeFromView(applicant);
     $http.delete(`/members/${applicant._id}`).then(
         res => {
         // TODO: Display success message
