@@ -13,6 +13,7 @@ Todo:
   ✔ Add method to AuthenticationService to check if user is authenticated or not when page is loaded/refreshed @done(19-04-27 14:09)
   ✔ Non-admins shouldn't be able to access /applications on client. @done(19-04-30 22:35)
   ✔ Fix "Uncaught SyntaxError: Unexpected token export" on all pages @done(19-04-30 22:35)
+  ☐ Test multer
   ☐ Fix css on pages
   ☐ Remove console.logs on client
   ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page

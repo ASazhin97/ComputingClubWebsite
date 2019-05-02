@@ -1,6 +1,26 @@
 angular
     .module('members', [])
-    .controller('MembersController', ['$http', MembersController]);
+    .controller('MembersController', ['$http', MembersController])
+    .directive('fileread', FileRead);
+
+function FileRead(){
+  return {
+    scope: {
+      fileread: '=',
+    },
+    link: function(scope, element, attributes){
+      element.bind('change', changeEvent => {
+        const reader = new FileReader();
+        reader.onload = function(loadEvent){
+          scope.$apply(() => {
+            scope.fileread = loadEvent.target.result;
+          });
+        };
+        reader.readAsDataURL(changeEvent.target.files[0]);
+      });
+    },
+  };
+}
 
 function MembersController($http){
   console.log('members page');
@@ -59,8 +79,14 @@ function MembersController($http){
   vm.addMember = function(member){
     const body = {};
     body.member = member;
+    const formData = new FormData();
 
-    $http.post('/members', body).then(
+    formData.append('body', body);
+
+    $http.post('/members', formData, {
+      transformRequest: angular.identity,
+      headers: {'Content-Type': undefined},
+    }).then(
         res => {
           console.log('Successfully Added Member');
           getAllMembers();
