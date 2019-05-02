@@ -1,39 +1,86 @@
 <div class="row row-one">
   <!-- Events form -->
-  <div class="col-lg-3 col-sm-12" style="text-align: center; margin-left:5%; margin-right: 5%;">
-    <form class="form-vertical" name="EventForm" ng-submit="eventsCtrl.addEvent(event)" ng-if="isAuthenticated">
+  <div
+    class="col-lg-3 col-sm-12"
+    style="text-align: center; margin-left:5%; margin-right: 5%;"
+  >
+    <form
+      class="form-vertical"
+      name="EventForm"
+      ng-submit="eventsCtrl.addEvent(event)"
+      ng-if="isAuthenticated"
+    >
       <div class="form-group">
         <label class="new-event-label">Event Name:</label>
-        <input type="text" class="form-control" placeholder="Name" ng-model="event.name" required>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          ng-model="event.name"
+          required
+        />
       </div>
       <div class="form-group">
         <label class="new-event-label">Date:</label>
-        <input type="datetime-local" class="form-control" ng-model="event.date" required>
+        <input
+          type="datetime-local"
+          class="form-control"
+          ng-model="event.date"
+          required
+        />
       </div>
       <div class="form-group">
         <label class="new-event-label">Description:</label>
-        <textarea class="form-control" placeholder="Description" ng-model="event.description" required></textarea>
+        <textarea
+          class="form-control"
+          placeholder="Description"
+          ng-model="event.description"
+          required
+        ></textarea>
       </div>
-      <button type="submit" class="btn btn-secondary btn-down">Add Event</button>
+      <button type="submit" class="btn btn-secondary btn-down">
+        Add Event
+      </button>
     </form>
 
     <!-- Events coloumn-->
     <h1 style="color:white;">Upcoming Events</h1>
-    <div class="card" ng-repeat="event in eventsCtrl.events" style="margin-top: 1%;">
+    <div
+      class="card"
+      ng-repeat="event in eventsCtrl.events"
+      style="margin-top: 1%;"
+    >
       <div class="card-header">{{ event.name }}</div>
       <div class="card-body">
         <p>{{ event.summary }}</p>
         <p><b>Date:</b>{{ event.date }}</p>
       </div>
-      <button class="btn btn-danger" ng-click="eventsCtrl.deleteEvent(event)" ng-if="isAuthenticated">Delete</button>
+      <button
+        class="btn btn-danger"
+        ng-click="eventsCtrl.deleteEvent(event)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
     </div>
-
   </div>
 
   <!-- Calendar coloumn-->
   <div class=" col-sm- 12 col-lg-7">
+    <a
+      href="https://calendar.google.com/calendar/b/1?cid=NXBldGRyNXM4ZTZxdnI5bmFtMzdlMmJucXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+      ><button class="btn btn-down btn-secondary" style="margin-bottom: 2%;">
+        Edit Calendar
+      </button></a
+    >
+
     <iframe
-      src="https://calendar.google.com/calendar/b/2/embed?height=800&amp;wkst=1&amp;bgcolor=%23000099&amp;src=5petdr5s8e6qvr9nam37e2bnqs%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York"
-      style="border:solid 1px #777" width="80%" height="700" frameborder="0" scrolling="no"></iframe>
+      src="https://calendar.google.com/calendar/b/1/embed?height=800&amp;wkst=1&amp;bgcolor=%233F51B5&amp;ctz=America%2FNew_York&amp;src=NXBldGRyNXM4ZTZxdnI5bmFtMzdlMmJucXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4"
+      style="border:solid 1px #777"
+      width="80%"
+      height="650"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
   </div>
 </div>
