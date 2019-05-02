@@ -2,88 +2,45 @@
   <div class="col-lg-3 col-sm-12"></div>
   <div class="col-sm-12 col-lg-8">
     <div class="myContainer">
-      <form
-        class="col-md-8"
-        id="addition"
-        ng-submit="resourceCtrl.addResource(resource)"
-      >
+      <form class="col-md-8" id="addition" ng-submit="resourceCtrl.addResource(resource)">
         <h3 style="text-align: center;">Add New Resource</h3>
 
         <div class="form-row">
-          <input
-            type="text"
-            placeholder="Title"
-            ng-model="resource.title"
-            style="width:50%"
-            required
-          />
+          <input type="text" placeholder="Title" ng-model="resource.title" style="width:50%" required />
         </div>
         <div class="form-row">
-          <label class="radio-inline"
-            ><input
-              class="radio-button"
-              type="radio"
-              name="optradio"
-              value="git"
-              ng-model="resource.category"
-            />GitHub</label
-          >
-          <label class="radio-inline"
-            ><input
-              class="radio-button"
-              type="radio"
-              name="optradio"
-              value="java"
-              ng-model="resource.category"
-            />Java</label
-          >
-          <label class="radio-inline"
-            ><input
-              class="radio-button"
-              type="radio"
-              name="optradio"
-              value="scala"
-              ng-model="resource.category"
-            />Scala</label
-          >
-          <label class="radio-inline"
-            ><input
-              class="radio-button"
-              type="radio"
-              name="optradio"
-              value="android"
-              ng-model="resource.category"
-            />Android</label
-          >
-          <label class="radio-inline"
-            ><input
-              class="radio-button"
-              type="radio"
-              name="optradio"
-              value="html"
-              ng-model="resource.category"
-            />HTML</label
-          >
+          <label class="radio-inline" for="git">
+            <input class="radio-button" type="radio" name="optradio" id="git" value="git" ng-value="git"
+              ng-model="resource.category" />
+            GitHub
+          </label>
+          <label class="radio-inline" for="java">
+            <input class="radio-button" type="radio" name="optradio" id="java" value="java"
+              ng-model="resource.category" />
+            Java
+          </label>
+          <label class="radio-inline" for="scala">
+            <input class="radio-button" type="radio" name="optradio" id="scala" value="scala"
+              ng-model="resource.category" />
+            Scala
+          </label>
+          <label class="radio-inline" for="android">
+            <input class="radio-button" type="radio" name="optradio" id="android" value="android"
+              ng-model="resource.category" />
+            Android
+          </label>
+          <label class="radio-inline" for="html">
+            <input class="radio-button" type="radio" name="optradio" id="html" value="html"
+              ng-model="resource.category" />
+            HTML
+          </label>
         </div>
         <div class="form-row">
-          <input
-            type="text"
-            placeholder="Link"
-            ng-model="resource.link"
-            style="width:50%"
-            required
-          />
+          <input type="text" placeholder="Link" ng-model="resource.link" style="width:50%" required />
         </div>
         <div class="form-row">
-          <textarea
-            ng-model="resource.summary"
-            placeholder="Summary..."
-            rows="4"
-            style="width:100%"
-            maxlength="200"
-            minlength="10"
-            required
-          ></textarea>
+          <textarea ng-model="resource.summary" placeholder="Summary..." rows="4" style="width:100%" maxlength="200"
+            minlength="10" required></textarea>
         </div>
         <div class="form-row">
           <button type="submit" class="btn btn-down">Add Resource</button>
@@ -102,54 +59,34 @@
         <div class="filter-box">
           <div class="form-check">
             <div class="radio">
-              <label
-                ><input
-                  type="radio"
-                  name="optradio2"
-                  value="git"
-                  ng-model="resourceCtrl.currentCategory"
-                />GitHub</label
-              >
+              <label>
+                <input type="radio" name="optradio2" value="git" ng-model="resourceCtrl.currentCategory" />
+                GitHub
+              </label>
             </div>
             <div class="radio">
-              <label
-                ><input
-                  type="radio"
-                  name="optradio2"
-                  value="java"
-                  ng-model="resourceCtrl.currentCategory"
-                />Java</label
-              >
+              <label>
+                <input type="radio" name="optradio2" value="java" ng-model="resourceCtrl.currentCategory" />
+                Java
+              </label>
             </div>
-            <div class="radio disabled">
-              <label
-                ><input
-                  type="radio"
-                  name="optradio2"
-                  value="scala"
-                  ng-model="resourceCtrl.currentCategory"
-                />Scala</label
-              >
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio2" value="scala" ng-model="resourceCtrl.currentCategory" />
+                Scala
+              </label>
             </div>
-            <div class="radio disabled">
-              <label
-                ><input
-                  type="radio"
-                  name="optradio2"
-                  value="android"
-                  ng-model="resourceCtrl.currentCategory"
-                />Android</label
-              >
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio2" value="android" ng-model="resourceCtrl.currentCategory" />
+                Android
+              </label>
             </div>
-            <div class="radio disabled">
-              <label
-                ><input
-                  type="radio"
-                  name="optradio2"
-                  value="html"
-                  ng-model="resourceCtrl.currentCategory"
-                />HTML</label
-              >
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio2" value="html" ng-model="resourceCtrl.currentCategory" />
+                HTML
+              </label>
             </div>
           </div>
         </div>
@@ -161,32 +98,22 @@
   <div class="col-sm-12 col-lg-8">
     <!-- Display Article -->
     <!-- filter:consoleFilter | this should be used to filter through articles using consoleFilter function -->
-    <div
-      ng-repeat="resource in resourceCtrl.resources | filter:resourceCtrl.currentCategory"
-      class="panel panel-default"
-    >
+    <div ng-repeat="resource in resourceCtrl.resources | filter:resourceCtrl.currentCategory"
+      class="panel panel-default">
       <div class="panel-heading">
-        <button
-          type="button"
-          id="close"
-          class="close"
-          style="color: red;"
-          ng-click="removeResource(article)"
-          ng-if="isAuthenticated"
-        >
+        <button type="button" id="close" class="close" style="color: red;"
+          ng-click="resourceCtrl.deleteResource(resource)" ng-if="isAuthenticated">
           &times;
         </button>
-        <b contenteditable="true">{{ resource.title }}</b>
+        <b>{{ resource.title }}</b>
       </div>
-      <div class="panel-body" contenteditable="true">
+      <div class="panel-body">
         {{ resource.summary }}
       </div>
       <div class="panel-footer">
         <p style="margin:10px;">
           Link:
-          <span contenteditable="true"
-            ><a>{{ resource.link }}</a></span
-          >
+          <span><a>{{ resource.link }}</a></span>
         </p>
       </div>
     </div>

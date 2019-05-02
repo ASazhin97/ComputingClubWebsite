@@ -2,12 +2,15 @@
 angular
     .module('computingClubApp', [
       'ngRoute',
+      'partials',
       'home',
       'events',
       'login',
       'register',
       'applications',
       'resources',
+      'members',
+      'apply',
     ])
     .config($routeProvider => {
       $routeProvider
@@ -49,6 +52,19 @@ angular
               ],
             },
           })
+          .when('/apply', {
+            controller: 'ApplyController as applyCtrl',
+            templateUrl: '/public/app/views/apply.html',
+            resolve: {
+              load: [
+                'InjectFileService',
+                function(injectFile){
+                  injectFile.set('css', '/public/css/home.css', 'homecss');
+                  injectFile.set('css', '/public/css/apply.css', 'applycss');
+                },
+              ],
+            },
+          })
           .when('/events', {
             controller: 'EventsController as eventsCtrl',
             templateUrl: '/public/app/views/events.html',
@@ -74,6 +90,23 @@ angular
                       'css',
                       '/public/css/applications.css',
                       'applicationscss'
+                  );
+                },
+              ],
+            },
+          })
+          .when('/members', {
+            controller: 'MembersController as membersCtrl',
+            templateUrl: '/public/app/views/members.html',
+            resolve: {
+              load: [
+                'InjectFileService',
+                function(injectFile){
+                  injectFile.set('css', '/public/css/home.css', 'homecss');
+                  injectFile.set(
+                      'css',
+                      '/public/css/members.css',
+                      'memberscss'
                   );
                 },
               ],

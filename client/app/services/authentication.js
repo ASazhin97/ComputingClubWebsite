@@ -30,9 +30,6 @@ function AuthenticationService($rootScope, $http, $location){
 
   // Get authentication details from server and set them
   authenticatation.setAuth = function(){
-    // This is kinda lazy
-    $rootScope.logout = authenticatation.logout;
-
     $http.get('/admin/authenticated')
         .then(res => {
           authenticatation.setAuthStatus(res.data.isAuthenticated);

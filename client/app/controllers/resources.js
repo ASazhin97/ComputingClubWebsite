@@ -19,9 +19,10 @@ function ResourceController($http){
     );
   }
 
+  // Call on page load
   getResources();
 
-  // adding
+  // Responsible for adding resources to the database
   vm.addResource = function(resource){
     const body = {};
     body.resource = resource;
@@ -37,7 +38,15 @@ function ResourceController($http){
     );
   };
 
+  // Responsible for deleting a resource from the database
   vm.deleteResource = function(resource){
-    // TODO needs to delete a single file
+    $http.delete(`/resources/${resource._id}`).then(
+        res => {
+          getResources();
+        },
+        err => {
+          console.log(err);
+        }
+    );
   };
 }

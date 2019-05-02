@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="computingClubApp">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quinnipiac Computing Club</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quinnipiac Computing Club</title>
 
-  <body>
-    <div ng-include="'/public/app/partials/header.html'"></div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css" />
+</head>
 
-    <div id="content" ng-view></div>
+<body>
+  <div ng-include="'/public/app/partials/header.html'"></div>
 
-    <div ng-include="'/public/app/partials/footer.html'"></div>
+  <div id="content" ng-view></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
-    <script
-      type="module"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.js"></script>
+  <div ng-include="'/public/app/partials/footer.html'"></div>
 
-    <script src="/public/app/app.js"></script>
-    <script src="/public/app/services/injectFile.js"></script>
-    <script src="/public/app/services/authentication.js"></script>
-    <script src="/public/app/controllers/home.js"></script>
-    <script src="/public/app/controllers/events.js"></script>
-    <script src="/public/app/controllers/login.js"></script>
-    <script src="/public/app/controllers/register.js"></script>
-    <script src="/public/app/controllers/applications.js"></script>
-    <script src="/public/app/controllers/resources.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.js"></script>
+
+  <script src="/public/app/app.js"></script>
+  <script src="/public/app/services/injectFile.js"></script>
+  <script src="/public/app/services/authentication.js"></script>
+  <script src="/public/app/controllers/partials.js"></script>
+  <script src="/public/app/controllers/home.js"></script>
+  <script src="/public/app/controllers/events.js"></script>
+  <script src="/public/app/controllers/login.js"></script>
+  <script src="/public/app/controllers/register.js"></script>
+  <script src="/public/app/controllers/applications.js"></script>
+  <script src="/public/app/controllers/members.js"></script>
+  <script src="/public/app/controllers/apply.js"></script>
+  <script src="/public/app/controllers/resources.js"></script>
+</body>
+
 </html>

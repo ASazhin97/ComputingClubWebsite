@@ -1,46 +1,21 @@
-<header>
+<header ng-controller="PartialsController as partialsCtrl">
   <!-- nav bar -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="/"
-      ><img class="brand-img rounded-circle" src="/public/images/imageQ.jpg"
-    /></a>
+    <a class="navbar-brand" href="/"><img class="brand-img rounded-circle" src="/public/images/imageQ.jpg" /></a>
     <h1 style="color:white; margin-left: 10%; margin-bottom: 2%;">
       Quinnipiac Computing Club
     </h1>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div
-      class="collapse navbar-collapse  bottom-align"
-      id="navbarSupportedContent"
-    >
+    <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
       <ul class="top-list navbar-nav mr-auto">
-        <li class="nav-item rounded">
-          <a class="nav-link" href="/#!">Home<span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item rounded">
-          <a class="nav-link" href="/#!/members"
-            >Members<span class="sr-only"></span
-          ></a>
-        </li>
-        <li class="nav-item rounded">
-          <a class="nav-link" href="/#!/resources"
-            >Resources<span class="sr-only"></span
-          ></a>
-        </li>
-        <li class="nav-item rounded">
-          <a class="nav-link" href="/#!/events"
-            >Events<span class="sr-only"></span
-          ></a>
+        <li class="nav-item rounded" ng-repeat="navItem in partialsCtrl.navItems"
+          ng-class="{active : partialsCtrl.activeItem === navItem}">
+          <a class="nav-link" href={{navItem.href}} ng-click="partialsCtrl.setActive(navItem)">{{navItem.text}}<span
+              class="sr-only"></span></a>
         </li>
       </ul>
     </div>
@@ -55,7 +30,7 @@
           <button class="btn btn-secondary">Review Applications</button>
         </div>
       </a>
-      <a href="#" ng-if="isAuthenticated" ng-click="logout()">
+      <a href="#" ng-if="isAuthenticated" ng-click="partialsCtrl.logout()">
         <div>
           <button class="btn btn-secondary">Logout</button>
         </div>
