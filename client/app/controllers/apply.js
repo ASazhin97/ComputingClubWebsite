@@ -3,7 +3,6 @@ angular
     .controller('ApplyController', ['$http', ApplyController]);
 
 function ApplyController($http){
-  console.log('apply page');
   const vm = this;
 
   // Create an applicant
@@ -14,10 +13,10 @@ function ApplyController($http){
 
     $http.post('/members', body).then(
         res => {
-          console.log('Application Submitted!');
+          alert('Application Submitted!');
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
     // alert('Thank you for applying to the Quinnipiac University Computing Club! A club officer will get back to you by email once they have reviewed your application.');

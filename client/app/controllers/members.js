@@ -23,7 +23,6 @@ function FileRead(){
 }
 
 function MembersController($http){
-  console.log('members page');
   const vm = this;
 
   vm.officers = [];
@@ -37,7 +36,7 @@ function MembersController($http){
           vm.officers = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   }
@@ -49,7 +48,7 @@ function MembersController($http){
           vm.professors = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   }
@@ -61,7 +60,7 @@ function MembersController($http){
           vm.members = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   }
@@ -91,11 +90,11 @@ function MembersController($http){
       headers: {'Content-Type': undefined},
     }).then(
         res => {
-          console.log('Successfully Added Member');
+          alert('Member Created!');
           getAllMembers();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };
@@ -104,10 +103,11 @@ function MembersController($http){
   vm.deleteMember = function(member){
     $http.delete(`/members/${member._id}`).then(
         res => {
+          alert('Member Deleted!');
           getAllMembers();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };

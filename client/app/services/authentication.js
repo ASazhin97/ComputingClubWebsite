@@ -50,7 +50,7 @@ function AuthenticationService($rootScope, $http, $location){
           $location.path('/');
         },
         err => {
-          $location.path('/login');
+          alert(err.data.message);
         });
   };
 
@@ -63,7 +63,7 @@ function AuthenticationService($rootScope, $http, $location){
           $location.path('/');
         },
         err => {
-          $location.path('/register');
+          alert(err.data.message);
         });
   };
 

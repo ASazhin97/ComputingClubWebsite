@@ -3,7 +3,6 @@ angular
     .controller('EventsController', ['$http', EventsController]);
 
 function EventsController($http){
-  console.log('events page');
   const vm = this;
 
   vm.events = [];
@@ -15,7 +14,7 @@ function EventsController($http){
           vm.events = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   }
@@ -31,11 +30,11 @@ function EventsController($http){
 
     $http.post('/events', body).then(
         res => {
-        // TODO: Display success message
+          alert('Event Created!');
           getEvents();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };
@@ -44,11 +43,11 @@ function EventsController($http){
   vm.deleteEvent = function(event){
     $http.delete(`/events/${event._id}`).then(
         res => {
-        // TODO: Display success message
+          alert('Event Deleted!');
           getEvents();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };

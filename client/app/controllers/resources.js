@@ -3,7 +3,6 @@ angular
     .controller('ResourceController', ['$http', ResourceController]);
 
 function ResourceController($http){
-  console.log('resource page');
   const vm = this;
 
   // get resources from database
@@ -13,7 +12,7 @@ function ResourceController($http){
           vm.resources = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   }
@@ -28,11 +27,11 @@ function ResourceController($http){
 
     $http.post('/resources', body).then(
         res => {
-          console.log('Put success');
+          alert('Resource Created!');
           getResources();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };
@@ -44,7 +43,7 @@ function ResourceController($http){
           getResources();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };

@@ -3,7 +3,6 @@ angular
     .controller('ApplicationsController', ['$http', ApplicationsController]);
 
 function ApplicationsController($http){
-  console.log('applications page');
   const vm = this;
 
   vm.applications = [];
@@ -15,7 +14,7 @@ function ApplicationsController($http){
           vm.applications = res.data;
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         });
   }
 
@@ -32,11 +31,10 @@ function ApplicationsController($http){
 
     $http.put(`/members/${applicant._id}`, body).then(
         res => {
-        // TODO: Display success message
           getApplications();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };
@@ -46,11 +44,10 @@ function ApplicationsController($http){
     removeFromView(applicant);
     $http.delete(`/members/${applicant._id}`).then(
         res => {
-        // TODO: Display success message
           getApplications();
         },
         err => {
-          console.log(err);
+          alert(err.data.message);
         }
     );
   };
