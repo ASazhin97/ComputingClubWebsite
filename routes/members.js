@@ -1,16 +1,8 @@
 const express = require('express');
 const multer = require('multer');
-
-const storage = multer.diskStorage({
-  destination: function(req, file, cb){
-    cb(null, '../client/images');
-  },
-  filename: function(req, file, cb){
-    cb(null, `${req.body.member._id}`);
-  },
-});
-
-const upload = multer({dest: 'uploads/'});
+const fs = require('fs');
+const log = require('loglevel');
+const upload = multer();
 
 const auth = require('./auth');
 const Member = require('../models/member');
@@ -31,9 +23,14 @@ router.get('/', (req, res, next) => {
 
 // POST /members
 // Creates one member
-router.post('/', upload.single('profilePicture'), (req, res, next) => {
+router.post('/', upload.single('avatar'), (req, res, next) => {
+  // Parse member from string
+  // This is the only route like this since two things are being sent:
+  // the new member and/or an image
+  const member = JSON.parse(req.body.member);
+
   // Create a member using the model
-  const newMember = new Member(req.body.member);
+  const newMember = new Member(member);
   // Save the member
   Member.create(newMember, (err, member) => {
     if (err){
@@ -41,6 +38,29 @@ router.post('/', upload.single('profilePicture'), (req, res, next) => {
     }
     res.json(member);
   });
+
+  // If an image is being uploaded
+  if (req.body.avatar !== undefined){
+    // Get base64 encoded image and file extension
+    const base64String = req.body.avatar;
+    const base64Decoded = base64String.split(';base64,');
+    const base64Image = base64Decoded[1];
+    const imageExt = base64Decoded[0].split('/')[1];
+    const filePath = `client/images/${newMember._id}.${imageExt}`;
+    // Save the image
+    fs.writeFile(filePath, base64Image, {encoding: 'base64'}, err => {
+      if (err){
+        log.error(err);
+      }
+      log.info('Image saved');
+    });
+    newMember.update({$set: {imagePath: filePath}}, (err, response) => {
+      if (err){
+        log.error(err);
+      }
+      log.info('Image path set');
+    });
+  }
 });
 
 // TODO: Do validation to ensure role is valid.
