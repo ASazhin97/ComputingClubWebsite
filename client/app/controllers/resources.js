@@ -27,6 +27,7 @@ function ResourceController($http){
 
     $http.post('/resources', body).then(
         res => {
+          vm.resource = {};
           alert('Resource Created!');
           getResources();
         },

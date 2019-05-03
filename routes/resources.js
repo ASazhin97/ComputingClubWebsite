@@ -29,7 +29,6 @@ router.post('/', verifyAdmin, (req, res, next) => {
   });
 });
 
-// TODO: Do validation to ensure category is valid.
 // GET /resources/category/:name
 // Returns all resources that have the category passed by the param
 router.get('/category/:name', (req, res, next) => {

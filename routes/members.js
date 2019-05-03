@@ -27,7 +27,9 @@ router.post('/', upload.single('avatar'), (req, res, next) => {
   // Parse member from string
   // This is the only route like this since two things are being sent:
   // the new member and/or an image
-  const member = JSON.parse(req.body.member);
+  const member = typeof req.body.member === 'string'
+    ? JSON.parse(req.body.member)
+    : req.body.member;
 
   // Create a member using the model
   const newMember = new Member(member);
@@ -64,7 +66,6 @@ router.post('/', upload.single('avatar'), (req, res, next) => {
   });
 });
 
-// TODO: Do validation to ensure role is valid.
 // GET /members/role/:role
 // Returns all members that have the role passed by the param
 router.get('/role/:role', (req, res, next) => {

@@ -81,7 +81,6 @@ function MembersController($http){
 
     const avatar = vm.avatar;
     const fData = new FormData();
-    // TODO: Send file and member details to different routes?
     fData.append('avatar', avatar);
     fData.append('member', JSON.stringify(member));
 
@@ -90,6 +89,7 @@ function MembersController($http){
       headers: {'Content-Type': undefined},
     }).then(
         res => {
+          vm.member = {};
           alert('Member Created!');
           getAllMembers();
         },

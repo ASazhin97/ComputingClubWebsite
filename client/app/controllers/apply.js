@@ -13,6 +13,7 @@ function ApplyController($http){
 
     $http.post('/members', body).then(
         res => {
+          vm.member = {};
           alert('Application Submitted!');
         },
         err => {

@@ -30,6 +30,7 @@ function EventsController($http){
 
     $http.post('/events', body).then(
         res => {
+          vm.event = {};
           alert('Event Created!');
           getEvents();
         },
