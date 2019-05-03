@@ -14,15 +14,15 @@ Todo:
   ✔ Non-admins shouldn't be able to access /applications on client. @done(19-04-30 22:35)
   ✔ Fix "Uncaught SyntaxError: Unexpected token export" on all pages @done(19-04-30 22:35)
   ✔ Fix multer @done(19-05-03 00:37)
-  ☐ Fix css on pages
+  ✔ Fix css on pages @done(19-05-03 02:44)
+  ✔ Implement form validation on the forms @done(19-05-03 02:53)
+  ✔ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts @done(19-05-03 02:53)
+  ✔ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector @done(19-05-03 02:53)
+  ✔ Delete excess blank lines @done(19-05-03 02:53)
+  ✔ Remove horizantal scrolling on pages(eg home.html) @done(19-05-03 02:53)
   ☐ Remove console.logs on client
   ☐ Toast or snackbar to show error/success messages from $http requests. Use $broadcast service OR redirect for errors to admin page
-  ☐ Implement form validation on the forms
   ☐ Add more log statements to routes?
-  ☐ Hide mongourl in environment variable and change password
   ☐ Fix deprecation warning for mongoose by using findOne instead of findById
-  ☐ Add a secret code to admin/register to prevent unauthorized users from creating admin accounts
-  ☐ Look for dead code, dead images and unused links. Use Chrome or Mozilla Page Inspector
-  ☐ Delete excess blank lines
-  ☐ Remove horizantal scrolling on pages(eg home.html)
+  ☐ Hide mongourl in environment variable and change password
   ☐ Navbar items disappear when the window's width is not large enough

@@ -13,4 +13,5 @@ if (!isProduction){
 module.exports = {
   'secretKey': process.env.SESSION_SECRET,
   'mongoURL': mongoURL,
+  'adminCode': process.env.ADMIN_CODE,
 };
