@@ -34,7 +34,7 @@
         </div>
         <div class="form-row">
           <label for="avatar">Choose a profile picture:</label>
-          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" ng-model = 'member.imagePath'>
         </div>
         <div class="form-row">
           <button type="submit" class="btn btn-down">Add</button>
@@ -53,6 +53,13 @@
         <h4 class="card-title">{{ officer.firstName}} {{officer.lastName}}</h4>
         <h4 class="card-title">{{officer.major}}, {{officer.year}}</h4>
       </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(officer)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
     </div>
   </div>
 
@@ -64,6 +71,13 @@
         <h4 class="card-title">{{professor.firstName}} {{professor.lastName}}</h4>
         <h4 class="card-title">{{professor.major}}, {{professor.year}}</h4>
       </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(professor)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
     </div>
   </div>
 </div>
