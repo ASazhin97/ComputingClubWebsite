@@ -52,6 +52,7 @@
         <img class="card-img-top" src="../public/'officer.imagePath'">
         <h4 class="card-title">{{ officer.firstName}} {{officer.lastName}}</h4>
         <h4 class="card-title">{{officer.major}}, {{officer.year}}</h4>
+        <h4 class="card-title">{{officer.summary}}</h4>
       </div>
         <button
         class="btn btn-danger"
@@ -69,11 +70,33 @@
       <div class="card-body">
         <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
         <h4 class="card-title">{{professor.firstName}} {{professor.lastName}}</h4>
-        <h4 class="card-title">{{professor.major}}, {{professor.year}}</h4>
+        <h4 class="card-title">{{professor.major}}</h4>
+        <h4 class="card-title">{{professor.summary}}</h4>
       </div>
         <button
         class="btn btn-danger"
         ng-click="membersCtrl.deleteMember(professor)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class = "row" ng-if = "isAuthenticated">
+     <div style="margin:1%">
+    <h2 class="title-one">Members</h2>
+    <div class="card" ng-repeat="member in membersCtrl.users | filter: 'member' ">
+      <div class="card-body">
+        <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
+        <h4 class="card-title">{{member.firstName}} {{member.lastName}}</h4>
+        <h4 class="card-title">{{member.major}}, {{member.year}}</h4>
+        <h4 class="card-title">{{member.summary}}</h4>
+      </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(member)"
         ng-if="isAuthenticated"
       >
         Delete
