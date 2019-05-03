@@ -46,26 +46,43 @@
 </div>
 
 <div class="row row-two">
-  <div class="col-lg-7" style="margin:1%">
+  <div class="col-lg-7" style="margin:1%; max-width: 50%;">
     <h2 class="title-one">Computing Club Officers</h2>
     <div class="card card-member" ng-repeat="officer in membersCtrl.officers">
       <div class="card-body">
         <img class="card-img-top" src="/public/images/{{officer.fileName}}" alt="Profile Picture"
           onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
         <h4 class="card-title">{{officer.firstName}} {{officer.lastName}}</h4>
-        <h4 class="card-title">{{officer.major}}, {{officer.year}}</h4>
+        <p class="card-text">{{officer.summary}}</p>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-4" style="margin:1%">
+  <div class="col-lg-4" style="margin:1%; max-width: 50%; ">
     <h2 class="title-one">Professors</h2>
     <div class="card card-member" ng-repeat="professor in membersCtrl.professors">
       <div class="card-body">
         <img class="card-img-top" src="/public/images/{{professor.fileName}}" alt="Profile Picture"
           onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
         <h4 class="card-title">{{professor.firstName}} {{professor.lastName}}</h4>
-        <h4 class="card-title">{{professor.major}}, {{professor.year}}</h4>
+        <h4 class="card-title">{{professor.major}}</h4>
+        <p class="card-text">{{professor.summary}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4" style="margin:1%; max-width: 50%;">
+    <h2 class="title-one">Members</h2>
+    <div class="card card-member" ng-repeat="member in membersCtrl.members">
+      <div class="card-body">
+        <img class="card-img-top" src="/public/images/{{member.fileName}}" alt="Profile Picture"
+          onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
+        <h4 class="card-title">{{member.firstName}} {{member.lastName}}</h4>
+        <h4 class="card-title">{{member.major}}</h4>
+        <p class="card-text">{{member.summary}}</p>
+        <button class="btn btn-danger" ng-click="membersCtrl.deleteMember(member)" ng-if="isAuthenticated">
+          Delete
+        </button>
       </div>
     </div>
   </div>
