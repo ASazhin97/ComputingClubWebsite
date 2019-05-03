@@ -6,50 +6,17 @@ function MembersController($http){
   console.log('members page');
   const vm = this;
 
-  vm.officers = [];
-  vm.professors = [];
-  vm.members = [];
-
-  // get officers from database
-  function getOfficers(){
-    $http.get('/members/role/officer').then(
-        res => {
-          vm.officers = res.data;
-        },
-        err => {
-          console.log(err);
-        }
-    );
-  }
-
-  // get professors from database
-  function getProfessors(){
-    $http.get('/members/role/professor').then(
-        res => {
-          vm.professors = res.data;
-        },
-        err => {
-          console.log(err);
-        }
-    );
-  }
-
-  // get members from database
-  function getMembers(){
-    $http.get('/members/role/member').then(
-        res => {
-          vm.members = res.data;
-        },
-        err => {
-          console.log(err);
-        }
-    );
-  }
+  vm.users = [];
 
   function getAllMembers(){
-    getOfficers();
-    getProfessors();
-    getMembers();
+        $http.get('/members').then(
+        res => {
+          vm.users = res.data;
+        },
+        err => {
+          console.log(err);
+        }
+    );
   }
 
   // Call on page load
