@@ -72,3 +72,14 @@ body {
 .carousel {
   width: 100%;
 }
+
+.form-vertical {
+  text-align: left;
+  margin: 5%;
+  border: white;
+}
+
+.btn-add {
+  color: white;
+  background-color: midnightblue;
+}

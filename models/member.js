@@ -44,7 +44,7 @@ const MemberSchema = Schema({
       return roles[randIndex];
     },
   },
-  imagePath: String,
+  fileName: String,
 });
 
 MemberSchema.plugin(faker);

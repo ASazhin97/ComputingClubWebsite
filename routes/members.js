@@ -36,31 +36,32 @@ router.post('/', upload.single('avatar'), (req, res, next) => {
     if (err){
       return next(err);
     }
+    // If an image is being uploaded
+    if (req.body.avatar !== undefined){
+      // Get base64 encoded image and file extension
+      const base64String = req.body.avatar;
+      const base64Decoded = base64String.split(';base64,');
+      const base64Image = base64Decoded[1];
+      const imageExt = base64Decoded[0].split('/')[1];
+      const filename = `${newMember._id}.${imageExt}`;
+      const filePath = `client/images/${filename}`;
+      // Save the image
+      fs.writeFile(filePath, base64Image, {encoding: 'base64'}, err => {
+        if (err){
+          log.error(err);
+        }
+        log.info('Image saved');
+      });
+      Member.updateOne({_id: newMember._id}, {$set: {fileName: filename}},
+          (err, response) => {
+            if (err){
+              log.error(err);
+            }
+            log.info('Image path set');
+          });
+    }
     res.json(member);
   });
-
-  // If an image is being uploaded
-  if (req.body.avatar !== undefined){
-    // Get base64 encoded image and file extension
-    const base64String = req.body.avatar;
-    const base64Decoded = base64String.split(';base64,');
-    const base64Image = base64Decoded[1];
-    const imageExt = base64Decoded[0].split('/')[1];
-    const filePath = `client/images/${newMember._id}.${imageExt}`;
-    // Save the image
-    fs.writeFile(filePath, base64Image, {encoding: 'base64'}, err => {
-      if (err){
-        log.error(err);
-      }
-      log.info('Image saved');
-    });
-    newMember.update({$set: {imagePath: filePath}}, (err, response) => {
-      if (err){
-        log.error(err);
-      }
-      log.info('Image path set');
-    });
-  }
 });
 
 // TODO: Do validation to ensure role is valid.

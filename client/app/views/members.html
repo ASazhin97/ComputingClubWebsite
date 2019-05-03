@@ -37,7 +37,7 @@
           <input fileread="membersCtrl.avatar" name="avatar" type="file" accept="image/png, image/jpeg">
         </div>
         <div class="form-row">
-          <button type="submit" class="btn btn-down">Add</button>
+          <button type="submit" class="btn btn-add">Add Member</button>
         </div>
       </form>
     </div>
@@ -49,7 +49,8 @@
     <h2 class="title-one">Computing Club Officers</h2>
     <div class="card" ng-repeat="officer in membersCtrl.officers">
       <div class="card-body">
-        <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
+        <img class="card-img-top" src="/public/images/{{officer.fileName}}" alt="Profile Picture"
+          onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
         <h4 class="card-title">{{officer.firstName}} {{officer.lastName}}</h4>
         <h4 class="card-title">{{officer.major}}, {{officer.year}}</h4>
       </div>
@@ -60,7 +61,8 @@
     <h2 class="title-one">Professors</h2>
     <div class="card" ng-repeat="professor in membersCtrl.professors">
       <div class="card-body">
-        <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
+        <img class="card-img-top" src="/public/images/{{professor.fileName}}" alt="Profile Picture"
+          onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
         <h4 class="card-title">{{professor.firstName}} {{professor.lastName}}</h4>
         <h4 class="card-title">{{professor.major}}, {{professor.year}}</h4>
       </div>
