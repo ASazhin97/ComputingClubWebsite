@@ -79,11 +79,13 @@ function MembersController($http){
   vm.addMember = function(member){
     const body = {};
     body.member = member;
-    const formData = new FormData();
 
-    formData.append('body', body);
+    const file = vm.file;
+    const fData = new FormData();
+    // TODO: Send file and member details to different routes?
+    fData.append('profile', file);
 
-    $http.post('/members', formData, {
+    $http.post('/members', body, {
       transformRequest: angular.identity,
       headers: {'Content-Type': undefined},
     }).then(
