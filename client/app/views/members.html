@@ -1,7 +1,7 @@
 <div class="row row-one" ng-if="isAuthenticated">
   <div class="col-lg-12">
     <div class="myContainer">
-      <form id="addition" ng-submit="membersCtrl.addMember(member)" enctype="multipart/form-data">
+      <form id="addition" ng-submit="membersCtrl.addMember(member)">
         <h3 style="text-align: center;">Add New Officer</h3>
         <div class="form-row">
           <input type="text" placeholder="First Name" ng-model="member.firstName" style="width:50%" required />
@@ -15,10 +15,10 @@
         <div class="form-group">
           <select class="form-control" ng-model="member.year">
             <option value="" disabled selected hidden>Year</option>
-            <option value="freshman">Freshman</option>
-            <option value="sophomore">Sophomore</option>
-            <option value="junior">Junior</option>
-            <option value="senior">Senior</option>
+            <option value="freshman" ng-model = "member.year">Freshman</option>
+            <option value="sophomore" ng-model = "member.year">Sophomore</option>
+            <option value="junior" ng-model = "member.year">Junior</option>
+            <option value="senior" ng-model = "member.year">Senior</option>
           </select>
         </div>
         <div class="form-group">
@@ -29,12 +29,12 @@
           </select>
         </div>
         <div class="form-row">
-          <textarea ng-model="resource.summary" placeholder="Summary..." rows="4" style="width:100%" maxlength="200"
+          <textarea ng-model="member.summary" placeholder="Summary..." rows="4" style="width:100%" maxlength="200"
             minlength="10" required></textarea>
         </div>
         <div class="form-row">
           <label for="avatar">Choose a profile picture:</label>
-          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" ng-model = 'member.imagePath'>
         </div>
         <div class="form-row">
           <button type="submit" class="btn btn-down">Add</button>
@@ -47,23 +47,60 @@
 <div class="row row-two">
   <div class="col-lg-7" style="margin:1%">
     <h2 class="title-one">Computing Club Officers</h2>
-    <div class="card" ng-repeat="officer in membersCtrl.officers">
+    <div class="card" ng-repeat="officer in membersCtrl.users | filter: 'officer' ">
       <div class="card-body">
-        <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
-        <h4 class="card-title">{{officer.firstName}} {{officer.lastName}}</h4>
+        <img class="card-img-top" src="../public/'officer.imagePath'">
+        <h4 class="card-title">{{ officer.firstName}} {{officer.lastName}}</h4>
         <h4 class="card-title">{{officer.major}}, {{officer.year}}</h4>
+        <h4 class="card-title">{{officer.summary}}</h4>
       </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(officer)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
     </div>
   </div>
 
   <div class="col-lg-4" style="margin:1%">
     <h2 class="title-one">Professors</h2>
-    <div class="card" ng-repeat="professor in membersCtrl.professors">
+    <div class="card" ng-repeat="professor in membersCtrl.users | filter: 'professor' ">
       <div class="card-body">
         <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
         <h4 class="card-title">{{professor.firstName}} {{professor.lastName}}</h4>
-        <h4 class="card-title">{{professor.major}}, {{professor.year}}</h4>
+        <h4 class="card-title">{{professor.major}}</h4>
+        <h4 class="card-title">{{professor.summary}}</h4>
       </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(professor)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class = "row" ng-if = "isAuthenticated">
+     <div style="margin:1%">
+    <h2 class="title-one">Members</h2>
+    <div class="card" ng-repeat="member in membersCtrl.users | filter: 'member' ">
+      <div class="card-body">
+        <!-- <img class="card-img-top" src="../public/{{officer.Image}}"> -->
+        <h4 class="card-title">{{member.firstName}} {{member.lastName}}</h4>
+        <h4 class="card-title">{{member.major}}, {{member.year}}</h4>
+        <h4 class="card-title">{{member.summary}}</h4>
+      </div>
+        <button
+        class="btn btn-danger"
+        ng-click="membersCtrl.deleteMember(member)"
+        ng-if="isAuthenticated"
+      >
+        Delete
+      </button>
     </div>
   </div>
 </div>
