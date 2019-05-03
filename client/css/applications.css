@@ -1,9 +1,9 @@
-.card {
+.card-application {
   background-color: gold;
   margin: 50px;
   padding: 10px;
 }
 
-.card-title {
+.card-application .card-title {
   font-size: x-large;
 }

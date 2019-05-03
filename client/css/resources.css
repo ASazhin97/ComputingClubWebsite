@@ -3,8 +3,6 @@
   margin-right: 2%;
 }
 
-
-
 .panel {
   margin: 2%;
   padding: 10px;
@@ -20,22 +18,15 @@
   font-size: medium;
 }
 
-.myContainer {
-}
-
-.card-header {
+.card-resource .card-header {
   font-size: large;
 }
 
-.card {
+.card-resource {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 5%;
-}
-
-.form-row {
-  margin: 10px;
 }
 
 #addition {

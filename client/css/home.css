@@ -83,3 +83,7 @@ body {
   color: white;
   background-color: midnightblue;
 }
+
+.form-row {
+  margin: 10px;
+}

@@ -2,7 +2,7 @@
   color: white;
 }
 
-.card {
+.card-member {
   /* display: inline-block; */
   float: left;
   width: 300px;
@@ -10,23 +10,19 @@
 }
 
 
-.card-img-top {
+.card-member .card-img-top {
   width: 70%;
 }
 
-.card-header {
+.card-member .card-header {
   font-size: large;
 }
 
-.card {
+.card-member {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 5%;
-}
-
-.form-row {
-  margin: 10px;
 }
 
 .form-group {

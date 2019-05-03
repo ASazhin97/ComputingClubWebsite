@@ -3,14 +3,14 @@
     <div class="myContainer">
       <form id="addition" ng-submit="membersCtrl.addMember(member)">
         <h3 style="text-align: center;">Add New Officer</h3>
-        <div class="form-row">
-          <input type="text" placeholder="First Name" ng-model="member.firstName" style="width:50%" required />
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="First Name" ng-model="member.firstName" required />
         </div>
-        <div class="form-row">
-          <input type="text" placeholder="Last Name" ng-model="member.lastName" style="width:50%" required />
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Last Name" ng-model="member.lastName" required />
         </div>
-        <div class="form-row">
-          <input type="text" placeholder="Major" ng-model="member.major" style="width:50%" />
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Major" ng-model="member.major" />
         </div>
         <div class="form-group">
           <select class="form-control" ng-model="member.year">
@@ -28,15 +28,16 @@
             <option value="professor">Professor</option>
           </select>
         </div>
-        <div class="form-row">
-          <textarea ng-model="member.summary" placeholder="Summary..." rows="4" style="width:100%" maxlength="200"
-            minlength="10" required></textarea>
+        <div class="form-group">
+          <textarea class="form-control" ng-model="member.summary" placeholder="Summary..." rows="4" style="width:100%"
+            maxlength="200" minlength="10" required></textarea>
         </div>
-        <div class="form-row">
-          <label for="avatar">Choose a profile picture:</label>
-          <input fileread="membersCtrl.avatar" name="avatar" type="file" accept="image/png, image/jpeg">
+        <div class="custom-file">
+          <label class="custom-file-label" for="avatar">Choose a profile picture:</label>
+          <input class="custom-file-input" fileread="membersCtrl.avatar" name="avatar" type="file"
+            accept="image/png, image/jpeg">
         </div>
-        <div class="form-row">
+        <div class="form-group">
           <button type="submit" class="btn btn-add">Add Member</button>
         </div>
       </form>
@@ -47,7 +48,7 @@
 <div class="row row-two">
   <div class="col-lg-7" style="margin:1%">
     <h2 class="title-one">Computing Club Officers</h2>
-    <div class="card" ng-repeat="officer in membersCtrl.officers">
+    <div class="card card-member" ng-repeat="officer in membersCtrl.officers">
       <div class="card-body">
         <img class="card-img-top" src="/public/images/{{officer.fileName}}" alt="Profile Picture"
           onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">
@@ -59,7 +60,7 @@
 
   <div class="col-lg-4" style="margin:1%">
     <h2 class="title-one">Professors</h2>
-    <div class="card" ng-repeat="professor in membersCtrl.professors">
+    <div class="card card-member" ng-repeat="professor in membersCtrl.professors">
       <div class="card-body">
         <img class="card-img-top" src="/public/images/{{professor.fileName}}" alt="Profile Picture"
           onerror="if (this.src != '/public/images/default.png') this.src = '/public/images/default.png';">

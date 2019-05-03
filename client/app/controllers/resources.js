@@ -5,7 +5,6 @@ angular
 function ResourceController($http){
   console.log('resource page');
   const vm = this;
-  vm.currentCategory = '';
 
   // get resources from database
   function getResources(){
