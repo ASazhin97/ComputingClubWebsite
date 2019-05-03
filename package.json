@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ASazhin97/ComputingClubWebsite#readme",
   "dependencies": {
+    "@lykmapipo/mongoose-faker": "^0.9.3",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
     "dotenv": "^7.0.0",
@@ -34,7 +35,6 @@
     "passport-local-mongoose": "^5.0.1"
   },
   "devDependencies": {
-    "@lykmapipo/mongoose-faker": "^0.9.1",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-angular": "^4.0.0"
