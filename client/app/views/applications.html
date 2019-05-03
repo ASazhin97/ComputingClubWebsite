@@ -9,6 +9,7 @@
   <div class="card-body">
     <p> <b>Major:</b> {{ applicant.major }} </p>
     <p> <b>Year:</b> {{ applicant.year }} </p>
+    <p> <b>Summary:</b> {{ applicant.summary }} </p>
     <button class="btn btn-success" ng-click="applicationsCtrl.accept(applicant)" data-toggle="modal"
       data-target="#acceptance-modal">Accept</button>
     <button class="btn btn-danger" ng-click="applicationsCtrl.reject(applicant)" data-toggle="modal"
