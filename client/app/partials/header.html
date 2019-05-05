@@ -1,46 +1,38 @@
 <header ng-controller="PartialsController as partialsCtrl">
   <!-- nav bar -->
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="/"><img class="brand-img rounded-circle" src="/public/images/imageQ.jpg" /></a>
-    <h1 style="color:white; margin-left: 10%; margin-bottom: 2%;">
-      Quinnipiac Computing Club
-    </h1>
+  <nav class="navbar navbar-expand-lg justify-content-center">
+    <a class="navbar-brand d-flex w-50 mr-auto" href="/">
+      <img class="rounded-circle" src="/public/images/imageQ.jpg" width="60" height="60" alt="">
+      <span>Quinnipiac Computing Club</span>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse  bottom-align" id="navbarSupportedContent">
-      <ul class="top-list navbar-nav mr-auto">
+    <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 justify-content-center">
         <li class="nav-item rounded" ng-repeat="navItem in partialsCtrl.navItems"
           ng-class="{active : partialsCtrl.activeItem === navItem}">
           <a class="nav-link" href={{navItem.href}} ng-click="partialsCtrl.setActive(navItem)">{{navItem.text}}<span
               class="sr-only"></span></a>
         </li>
       </ul>
+      <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item" ng-if="!isAuthenticated">
+          <a class="nav-link" href="#">Apply Now</a>
+        </li>
+        <li class="nav-item" ng-if="!isAuthenticated">
+          <a class="nav-link" href="#">Admin Login</a>
+        </li>
+        <li class="nav-item" ng-if="isAuthenticated">
+          <a class="nav-link" href="#">Review Applications</a>
+        </li>
+        <li class="nav-item" ng-if="isAuthenticated">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
     </div>
-    <div class="action-buttons">
-      <a href="/#!/apply" ng-if="!isAuthenticated">
-        <div>
-          <button class="btn btn-secondary">Apply Now</button>
-        </div>
-      </a>
-      <a href="/#!/applications" ng-if="isAuthenticated">
-        <div>
-          <button class="btn btn-secondary">Review Applications</button>
-        </div>
-      </a>
-      <a href="#" ng-if="isAuthenticated" ng-click="partialsCtrl.logout()">
-        <div>
-          <button class="btn btn-secondary">Logout</button>
-        </div>
-      </a>
-      <a href="/#!/login" ng-if="!isAuthenticated">
-        <div>
-          <button class="btn btn-secondary">Admin Login</button>
-        </div>
-      </a>
-
   </nav>
   <!-- nav bar end -->
 </header>

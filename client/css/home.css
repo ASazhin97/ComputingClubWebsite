@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -12,46 +13,54 @@ body {
 }
 
 .navbar {
-  height: 12%;
   background-image: url("/public/images/Q_Plaid.jpg");
 }
 
-.nav-link {
+li.nav-item.rounded.ng-scope.active {
+  background-color: gold;
+}
+
+a.nav-link,
+.navbar-brand {
   color: white;
+}
+
+@media (min-width: 992px) {
+  .navbar-brand span {
+    font-size: 1.7rem;
+  }
+
+}
+
+.nav-item {
+  margin: 5px;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+a.nav-link:hover,
+.navbar-brand:hover {
+  color: black;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 34, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .nav-item {
   font-size: 20px;
   background-color: midnightblue;
-  margin-left: 2%;
-  margin-right: 2%;
 }
 
-.active {
-  background-color: gold;
-}
-
-.bottom-align {
+.footer-button .btn-secondary {
   position: absolute;
-  bottom: 0;
-  margin-left: 35%;
-  margin-right: 65%;
-}
-
-.action-buttons {
-  position: absolute;
-  right: 0;
-  margin-right: 1%;
-  float: right;
-  align-self: flex-start;
-  z-index: 999;
-}
-
-.action-buttons .btn {
-  color: white;
+  bottom: 20px;
+  right: 20px;
   background-color: midnightblue;
-  width: 100%;
-  margin: 5%;
+  color: white;
 }
 
 .row-one {
