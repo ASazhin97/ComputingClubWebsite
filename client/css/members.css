@@ -5,13 +5,12 @@
 .card-member {
   /* display: inline-block; */
   float: left;
-  width: 300px;
+  width: 200px;
   margin: 1%;
 }
 
-
 .card-member .card-img-top {
-  width: 70%;
+  width: 60%;
 }
 
 .card-member .card-header {
@@ -26,7 +25,7 @@
 }
 
 .form-group {
-  width:100%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
